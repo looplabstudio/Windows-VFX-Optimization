@@ -1,0 +1,20 @@
+﻿[15:47:49] [PASS] Directory created: C:\Windows-VFX-Optimization\Font-Installer\Logs
+[15:47:49] [PASS] Log file started: C:\Windows-VFX-Optimization\Font-Installer\Logs\2026-01-21_15-47.txt
+[15:47:49] [PASS] Font directory found
+[15:47:49] [DETAIL] C:\Test-Fonts
+[15:47:49] [DIV] -------------------------------------------------------------
+[15:47:49] [WARN] Skipped (File Exists): AbandoN.ttf
+[15:47:49] [WARN] Skipped (File Exists): AXR ArcadeMachine.otf
+[15:47:49] [WARN] Skipped (File Exists): Sabo-Regular.otf
+[15:47:49] [WARN] Skipped (File Exists): Thunderstorm-Signature.otf
+[15:47:49] [WARN] Skipped (File Exists): Thunderstorm-Update.otf
+[15:47:49] [WARN] Skipped (File Exists): Flanders Script DEMO.otf
+[15:47:49] [WARN] Skipped (File Exists): Maloney extrude.otf
+[15:47:49] [WARN] Skipped (File Exists): Maloney.otf
+[15:47:49] [DIV] -------------------------------------------------------------
+[15:47:49] [PASS] 0 fonts installed
+[15:47:49] [WARN] 8 duplicate fonts skipped
+[15:47:49] [ERROR] 0 fonts failed to install
+[15:47:49] [DIV] -------------------------------------------------------------
+[15:47:49] [INFO] Font installation complete
+

@@ -1,0 +1,99 @@
+﻿[18:14:52] [PASS] Directory exists: C:\Windows-VFX-Optimization\Scripts\Logs
+[18:14:52] [PASS] Log file started: C:\Windows-VFX-Optimization\Scripts\Logs\Run_2026-01-21_18-14.txt
+[18:14:52] [PASS] LGPO.exe found: C:\Windows-VFX-Optimization\Scripts\LGPO\LGPO.exe
+[18:14:52] [INFO] DEBUG level = 0
+[18:14:52] [PASS] Microcode Version: 0x11A (Safe)
+[18:14:54] [PASS] Windows 2009 detected. 24H2 Scheduler Patch: KB5044384 natively integrated into kernel.
+[18:14:54] [INFO] Stopping File Explorer...
+[18:14:54] [INFO] Stopping Group Policy Editor...
+[18:14:54] [INFO] Stopping Settings App...
+[18:14:56] [PROMPT] Back up Registry (.reg) and Policy (.pol) files?
+[18:14:57] [DETAIL] User declined backup
+[18:14:57] [PROMPT] Set a System Restore point?
+[18:14:57] [DETAIL] User declined setting System Restore point
+[18:14:57] [DETAIL] Pre-flight complete. Starting subscripts...
+[18:14:57] [SECT] -------------------------------------------------------------
+[18:14:57] [SECT]                           Services                           
+[18:14:57] [SECT] -------------------------------------------------------------
+[18:14:57] [DETAIL] Stopping and configuring services...
+[18:14:57] [DIV] -------------------------------------------------------------
+[18:14:57] [INFO] Service: Connected User Experiences and Telemetry (DiagTrack)
+[18:14:57] [PASS] Service already stopped
+[18:14:57] [PASS] Startup type already Manual
+[18:14:57] [DIV] -------------------------------------------------------------
+[18:14:57] [INFO] Service: Windows Biometric Service (WbioSrvc)
+[18:14:57] [PASS] Service already stopped
+[18:14:57] [PASS] Startup type already Manual
+[18:14:57] [DIV] -------------------------------------------------------------
+[18:14:57] [INFO] Service: Microsoft Edge Update Service (edgeupdate) (edgeupdate)
+[18:14:57] [PASS] Service already stopped
+[18:14:57] [PASS] Startup type already Manual
+[18:14:57] [DIV] -------------------------------------------------------------
+[18:14:57] [INFO] Service: Microsoft Edge Update Service (edgeupdatem) (edgeupdatem)
+[18:14:57] [PASS] Service already stopped
+[18:14:57] [PASS] Startup type already Manual
+[18:14:57] [DIV] -------------------------------------------------------------
+[18:14:57] [INFO] Service: Killer Smart AP Selection Service (KAPSService)
+[18:14:57] [PASS] Service already stopped
+[18:14:57] [PASS] Startup type already Manual
+[18:14:57] [DIV] -------------------------------------------------------------
+[18:14:57] [INFO] Service: Killer Analytics Service (Killer Analytics Service)
+[18:14:57] [PASS] Service already stopped
+[18:14:57] [PASS] Startup type already Manual
+[18:14:57] [DIV] -------------------------------------------------------------
+[18:14:57] [INFO] Service: Killer Network Service (Killer Network Service)
+[18:14:57] [PASS] Service already stopped
+[18:14:57] [PASS] Startup type already Manual
+[18:14:57] [DIV] -------------------------------------------------------------
+[18:14:57] [INFO] Service: Killer Provider Data Helper Service (Killer Provider Data Helper Service)
+[18:14:57] [PASS] Service already stopped
+[18:14:57] [PASS] Startup type already Manual
+[18:14:57] [DIV] -------------------------------------------------------------
+[18:14:57] [INFO] Service: Killer Dynamic Bandwidth Management (KNDBWM)
+[18:14:57] [PASS] Service already stopped
+[18:14:57] [PASS] Startup type already Manual
+[18:14:57] [DIV] -------------------------------------------------------------
+[18:14:57] [INFO] Service: Waves Audio Universal Services (WavesAudioService)
+[18:14:57] [PASS] Service already stopped
+[18:14:57] [PASS] Startup type already Manual
+[18:14:57] [DIV] -------------------------------------------------------------
+[18:14:57] [INFO] Service: Waves Audio Services (WavesSysSvc)
+[18:14:57] [PASS] Service already stopped
+[18:14:57] [PASS] Startup type already Manual
+[18:14:57] [DIV] -------------------------------------------------------------
+[18:14:57] [INFO] Service:  (Dell TechHub)
+[18:14:57] [DETAIL] Skipped: Service not found
+[18:14:57] [DIV] -------------------------------------------------------------
+[18:14:57] [INFO] Service:  (DDVDataCollector)
+[18:14:57] [DETAIL] Skipped: Service not found
+[18:14:57] [DIV] -------------------------------------------------------------
+[18:14:57] [INFO] Service:  (DDVRulesProcessor)
+[18:14:57] [DETAIL] Skipped: Service not found
+[18:14:57] [DIV] -------------------------------------------------------------
+[18:14:57] [INFO] Service:  (Dell Data Vault Service API)
+[18:14:57] [DETAIL] Skipped: Service not found
+[18:14:57] [DIV] -------------------------------------------------------------
+[18:14:57] [INFO] Service:  (DellClientManagementService)
+[18:14:57] [DETAIL] Skipped: Service not found
+[18:14:57] [DIV] -------------------------------------------------------------
+[18:14:57] [INFO] Service:  (DellDigitalDeliveryService)
+[18:14:57] [DETAIL] Skipped: Service not found
+[18:14:57] [DIV] -------------------------------------------------------------
+[18:14:57] [INFO] Service:  (DellOptimizer)
+[18:14:57] [DETAIL] Skipped: Service not found
+[18:14:57] [DIV] -------------------------------------------------------------
+[18:14:57] [INFO] Service: Device Setup Manager (dsmsvc)
+[18:14:57] [PASS] Service already stopped
+[18:14:57] [PASS] Startup type already Manual
+[18:14:57] [DIV] -------------------------------------------------------------
+[18:14:57] [INFO] Service:  (DCU64Service)
+[18:14:57] [DETAIL] Skipped: Service not found
+[18:14:57] [DIV] -------------------------------------------------------------
+[18:14:57] [DETAIL] Services processing complete
+[18:14:57] [DIV] -------------------------------------------------------------
+[18:14:57] [DETAIL] Subscripts complete
+[18:14:57] [DETAIL] No LGPO Group Polices to update.
+[18:14:57] [PASS] DNS cache flushed
+[18:14:57] [PASS] Windows Temp directories flushed 
+[18:14:57] [DETAIL] Restarting File Explorer and Taskbar...
+[18:15:00] [PROMPT] A system restart is recommended. Restart now?

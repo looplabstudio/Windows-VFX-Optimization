@@ -1,0 +1,834 @@
+﻿[17:35:43] [PASS] Directory created: C:\Windows-VFX-Optimization\Scripts\Logs
+[17:35:43] [PASS] Log file started: C:\Windows-VFX-Optimization\Scripts\Logs\Run_2026-01-21_17-35.txt
+[17:35:43] [PASS] LGPO.exe found: C:\Windows-VFX-Optimization\Scripts\LGPO\LGPO.exe
+[17:35:43] [INFO] DEBUG level = 0
+[17:35:43] [PASS] Microcode Version: 0x11A (Safe)
+[17:35:45] [PASS] Windows 2009 detected. 24H2 Scheduler Patch: KB5044384 natively integrated into kernel.
+[17:35:45] [INFO] Stopping File Explorer...
+[17:35:45] [INFO] Stopping Group Policy Editor...
+[17:35:45] [INFO] Stopping Settings App...
+[17:35:47] [PROMPT] Back up Registry (.reg) and Policy (.pol) files?
+[17:35:48] [DETAIL] User declined backup
+[17:35:48] [PROMPT] Set a System Restore point?
+[17:35:49] [DETAIL] User declined setting System Restore point
+[17:35:49] [DETAIL] Pre-flight complete. Starting subscripts...
+[17:35:49] [SECT] -------------------------------------------------------------
+[17:35:49] [SECT]                          Performance                         
+[17:35:49] [SECT] -------------------------------------------------------------
+[17:35:49] [DETAIL] Processing Registry definitions...
+[17:35:49] [DIV] -------------------------------------------------------------
+[17:35:49] [INFO] Registry: Increase GPU timeout detection to 60 seconds
+[17:35:49] [PASS] Set: TdrDelay = 60
+[17:35:49] [DETAIL] Prevent driver timeouts during heavy Substance bakes or Fusion renders.
+[17:35:49] [DETAIL] -------------------------------------------------------------
+[17:35:49] [INFO] Registry: Increase GPU thread timeout to 60 seconds
+[17:35:49] [PASS] Set: TdrDdiDelay = 60
+[17:35:49] [DETAIL] Prevent driver timeouts during heavy Substance bakes or Fusion renders.
+[17:35:49] [DETAIL] -------------------------------------------------------------
+[17:35:49] [INFO] System > Display > Graphics > Change default graphics settings: Hardware-accelerated GPU scheduling
+[17:35:49] [PASS] Set: HwSchMode = 2
+[17:35:49] [DETAIL] Not visible until GPU is installed.
+[17:35:49] [DETAIL] Offloads VRAM management to GPU to reduce CPU overhead.
+[17:35:49] [DETAIL] -------------------------------------------------------------
+[17:35:49] [INFO] Registry: Disable Energy Estimation
+[17:35:49] [PASS] Set: MainSession.EnergyEstimationEnabled = 0
+[17:35:49] [DETAIL] Prevents micro-stutters caused by power polling.
+[17:35:49] [DETAIL] -------------------------------------------------------------
+[17:35:49] [INFO] Registry: Disable Multi-Plane Overlay (MPO)
+[17:35:49] [PASS] Set: OverlayTestMode = 5
+[17:35:49] [DETAIL] Critical: Fix UI flickering & artifacts.
+[17:35:49] [DETAIL] -------------------------------------------------------------
+[17:35:49] [INFO] Registry: Force DirectX apps to prefer the dGPU (RTX) globally
+[17:35:49] [PASS] Set: DirectXUserGlobalSettings = ActiveGpuSelection=1;
+[17:35:49] [DETAIL] -------------------------------------------------------------
+[17:35:49] [INFO] Core Isolation > Memory Integrity: Memory Integrity (HVCI)
+[17:35:49] [PASS] Set: Enabled = 0
+[17:35:49] [DETAIL] Reduce memory latency by removing virtualization overhead for Arrow Lake.
+[17:35:49] [DETAIL] -------------------------------------------------------------
+[17:35:49] [INFO] Registry: System profile: Reserve 100% CPU for multimedia
+[17:35:49] [PASS] Set: NetworkThrottlingIndex = 4294967295
+[17:35:49] [DETAIL] Unlock full bandwidth and improve system responsiveness.
+[17:35:49] [DETAIL] -------------------------------------------------------------
+[17:35:49] [INFO] Registry: System profile: Reserve 0% CPU for background tasks
+[17:35:49] [PASS] Set: SystemResponsiveness = 0
+[17:35:49] [DETAIL] Unlock full bandwidth and improve system responsiveness.
+[17:35:49] [DETAIL] -------------------------------------------------------------
+[17:35:49] [INFO] System Properties > Advanced > Performance Settings > Advanced: Processor Scheduling
+[17:35:49] [PASS] Set: Win32PrioritySeparation = 38
+[17:35:49] [DETAIL] Custom hybrid setting that tells CPU to hold on to threads a bit longer.
+[17:35:49] [DETAIL] -------------------------------------------------------------
+[17:35:49] [INFO] System Properties > Advanced > Startup and Recovery Settings: Automatically restart
+[17:35:49] [PASS] Set: AutoReboot = 0
+[17:35:49] [DETAIL] Stop auto-reboot on BSOD so we can read error codes (RAM vs GPU).
+[17:35:49] [DETAIL] -------------------------------------------------------------
+[17:35:49] [INFO] Edit Power Plan > Change advance power settings > Processor Performance: Time Check
+[17:35:49] [PASS] Set: Attributes = 2
+[17:35:49] [DETAIL] GUI: Unhides Time Check for manual config
+[17:35:49] [DETAIL] -------------------------------------------------------------
+[17:35:49] [INFO] Edit Power Plan > Change advanced power settings > USB settings : Selective Suspend
+[17:35:49] [PASS] Set: Attributes = 2
+[17:35:49] [DETAIL] GUI: Unhides Selective Suspend for visual validation
+[17:35:49] [DETAIL] -------------------------------------------------------------
+[17:35:49] [DETAIL] Registry definitions complete
+[17:35:49] [DETAIL] Collecting LGPO definitions...
+[17:35:49] [DIV] -------------------------------------------------------------
+[17:35:49] [INFO] Set: Computer: Turn off Power Throttling
+[17:35:49] [PASS] PowerThrottlingOff = 1
+[17:35:49] [DETAIL] Prevents EcoQoS from throttling background renders.
+[17:35:49] [DIV] -------------------------------------------------------------
+[17:35:49] [INFO] Set: Computer: Automatic Maintenance WakeUp Policy
+[17:35:49] [PASS] WakeUp = 0
+[17:35:49] [DETAIL] Prevents OS from waking PC for maintenance.
+[17:35:49] [DIV] -------------------------------------------------------------
+[17:35:49] [DETAIL] LGPO collection complete
+[17:35:49] [DETAIL] Performance complete
+[17:35:49] [SECT] -------------------------------------------------------------
+[17:35:49] [SECT]                           Services                           
+[17:35:49] [SECT] -------------------------------------------------------------
+[17:35:49] [DETAIL] Stopping services...
+[17:35:49] [DIV] -------------------------------------------------------------
+[17:35:49] [INFO] Service: DiagTrack
+[17:35:49] [PASS] Service already stopped
+[17:35:49] [PASS] Service set to Manual
+[17:35:49] [DIV] -------------------------------------------------------------
+[17:35:49] [INFO] Service: WbioSrvc
+[17:35:49] [PASS] Service already stopped
+[17:35:49] [PASS] Service set to Manual
+[17:35:49] [DIV] -------------------------------------------------------------
+[17:35:49] [INFO] Service: edgeupdate
+[17:35:49] [PASS] Service already stopped
+[17:35:49] [PASS] Service set to Manual
+[17:35:49] [DIV] -------------------------------------------------------------
+[17:35:49] [INFO] Service: edgeupdatem
+[17:35:49] [PASS] Service already stopped
+[17:35:49] [PASS] Service set to Manual
+[17:35:49] [DIV] -------------------------------------------------------------
+[17:35:49] [INFO] Service: KAPSService
+[17:35:49] [PASS] Service already stopped
+[17:35:49] [PASS] Service set to Manual
+[17:35:49] [DIV] -------------------------------------------------------------
+[17:35:49] [INFO] Service: Killer Analytics Service
+[17:35:49] [PASS] Service already stopped
+[17:35:49] [PASS] Service set to Manual
+[17:35:49] [DIV] -------------------------------------------------------------
+[17:35:49] [INFO] Service: Killer Network Service
+[17:35:49] [PASS] Service already stopped
+[17:35:49] [PASS] Service set to Manual
+[17:35:49] [DIV] -------------------------------------------------------------
+[17:35:49] [INFO] Service: Killer Provider Data Helper Service
+[17:35:49] [PASS] Service already stopped
+[17:35:49] [PASS] Service set to Manual
+[17:35:49] [DIV] -------------------------------------------------------------
+[17:35:49] [INFO] Service: KNDBWM
+[17:35:49] [PASS] Service already stopped
+[17:35:49] [PASS] Service set to Manual
+[17:35:49] [DIV] -------------------------------------------------------------
+[17:35:49] [INFO] Service: WavesAudioService
+[17:35:49] [PASS] Service already stopped
+[17:35:49] [PASS] Service set to Manual
+[17:35:49] [DIV] -------------------------------------------------------------
+[17:35:49] [INFO] Service: WavesSysSvc
+[17:35:49] [PASS] Service already stopped
+[17:35:49] [PASS] Service set to Manual
+[17:35:49] [DIV] -------------------------------------------------------------
+[17:35:49] [DETAIL] Services complete
+[17:35:49] [SECT] -------------------------------------------------------------
+[17:35:49] [SECT]                       Scheduled Tasks                        
+[17:35:49] [SECT] -------------------------------------------------------------
+[17:35:49] [DETAIL] Disabling background tasks...
+[17:35:49] [DIV] -------------------------------------------------------------
+[17:35:49] [INFO] Task: ProactiveScan
+[17:35:49] [PASS] Task already disabled
+[17:35:49] [DIV] -------------------------------------------------------------
+[17:35:49] [DETAIL] Tasks complete
+[17:35:49] [SECT] -------------------------------------------------------------
+[17:35:49] [SECT]                         Power Config                         
+[17:35:49] [SECT] -------------------------------------------------------------
+[17:35:49] [DETAIL] Setting power configs...
+[17:35:49] [DIV] -------------------------------------------------------------
+[17:35:49] [INFO] Enforce High Performance Plan
+[17:35:50] [PASS] Command executed
+[17:35:50] [DETAIL] Critical to prevent Windows from parking P-Cores on the 265K.
+[17:35:50] [DETAIL] GUI: Edit Power Plan > Change Advanced Power Settings: Plan dropdown
+[17:35:50] [DETAIL] 'High Performance' will not be visible until after this command.
+[17:35:50] [DIV] -------------------------------------------------------------
+[17:35:50] [INFO] Disable Disk Timeout AC
+[17:35:50] [PASS] Command executed
+[17:35:50] [DETAIL] Prevent Seagate HDD spin-down latency.
+[17:35:50] [DETAIL] GUI: Edit Power Plan > Change Advanced Power Settings: 
+[17:35:50] [DETAIL] GUI: Hard Disk > Turn off hard disk after: Never (0)
+[17:35:50] [DIV] -------------------------------------------------------------
+[17:35:50] [INFO] Disable Disk Timeout DC
+[17:35:50] [PASS] Command executed
+[17:35:50] [DIV] -------------------------------------------------------------
+[17:35:50] [INFO] Turn off PCI Link State AC
+[17:35:50] [PASS] Command executed
+[17:35:50] [DETAIL] Prevent NVMe drives and RTX 3060 from going to sleep
+[17:35:50] [DETAIL] GUI: Edit Power Plan > Change Advanced Power Settings: 
+[17:35:50] [DETAIL] GUI: PCI Express > Link State Power Management: Off 
+[17:35:50] [DIV] -------------------------------------------------------------
+[17:35:50] [INFO] Turn off PCI Link State DC
+[17:35:50] [PASS] Command executed
+[17:35:50] [DIV] -------------------------------------------------------------
+[17:35:50] [INFO] Minimum Processor State AC
+[17:35:50] [PASS] Command executed
+[17:35:50] [DETAIL] Prevent OS from turning off Core Ultra 7 P-Cores 
+[17:35:50] [DETAIL] GUI: Edit Power Plan > Change Advanced Power Settings: 
+[17:35:50] [DETAIL] GUI: Processor Power Management > Minimum Processor State to 100% 
+[17:35:50] [DIV] -------------------------------------------------------------
+[17:35:50] [INFO] Minimum Processor State DC
+[17:35:50] [PASS] Command executed
+[17:35:50] [DIV] -------------------------------------------------------------
+[17:35:50] [INFO] Maximum Power State AC
+[17:35:50] [PASS] Command executed
+[17:35:50] [DETAIL] GUI: Processor Power Management > Maximum Processor State to 100% 
+[17:35:50] [DIV] -------------------------------------------------------------
+[17:35:50] [INFO] Maximum Power State DC
+[17:35:50] [PASS] Command executed
+[17:35:50] [DIV] -------------------------------------------------------------
+[17:35:50] [INFO] Sleep Timeout
+[17:35:50] [PASS] Command executed
+[17:35:50] [DETAIL] GUI: Edit Power Plan > Change Advanced Power Settings
+[17:35:50] [DETAIL] GUI: Sleep > Sleep after 120 minutes
+[17:35:50] [DIV] -------------------------------------------------------------
+[17:35:50] [INFO] Monitor Timeout
+[17:35:50] [PASS] Command executed
+[17:35:50] [DETAIL] GUI: Edit Power Plan > Change Advanced Power Settings
+[17:35:50] [DETAIL] GUI: Display > Turn off display after 15 minutes
+[17:35:50] [DIV] -------------------------------------------------------------
+[17:35:50] [INFO] Unhide Processor Performance Boost Mode
+[17:35:50] [PASS] Command executed
+[17:35:50] [DETAIL] Fix 'Lazy Frequency' scaling where CPU doesn't boost fast enough for Fusion
+[17:35:50] [DIV] -------------------------------------------------------------
+[17:35:50] [INFO] Set Boost Mode to Aggressive AC
+[17:35:50] [PASS] Command executed
+[17:35:50] [DIV] -------------------------------------------------------------
+[17:35:50] [INFO] Set Boost Mode to Aggressive DC
+[17:35:50] [PASS] Command executed
+[17:35:50] [DIV] -------------------------------------------------------------
+[17:35:50] [INFO] Disable USB Selective Suspend AC
+[17:35:50] [PASS] Command executed
+[17:35:50] [DIV] -------------------------------------------------------------
+[17:35:50] [INFO] Disable USB Selective Suspend DC
+[17:35:50] [PASS] Command executed
+[17:35:50] [DIV] -------------------------------------------------------------
+[17:35:50] [INFO] Disable Memory Compression
+[17:35:52] [PASS] Command executed
+[17:35:52] [DETAIL] Force raw RAM access for Fusion's cache instead of burning CPU cycles compressing pages.
+[17:35:52] [DIV] -------------------------------------------------------------
+[17:35:52] [INFO] Disable Hibernation & Fast Startup
+[17:35:52] [PASS] Command executed
+[17:35:52] [DETAIL] Recover disk space and ensure clean kernel boots (fixes uptime bugs).
+[17:35:52] [DETAIL] GUI: Control Panel > Power Options: Choose what the power buttons do
+[17:35:52] [DETAIL] GUI: Click: Change settings that are currently unavailable
+[17:35:52] [DETAIL] GUI: Turn on Fast Startup = False
+[17:35:52] [DIV] -------------------------------------------------------------
+[17:35:52] [INFO] Apply Changes
+[17:35:52] [PASS] Command executed
+[17:35:52] [DIV] -------------------------------------------------------------
+[17:35:52] [PASS] Power Configs complete
+[17:35:52] [SECT] -------------------------------------------------------------
+[17:35:52] [SECT]                         Activity Feed                        
+[17:35:52] [SECT] -------------------------------------------------------------
+[17:35:52] [DETAIL] No Registry definitions to process.
+[17:35:52] [DETAIL] Collecting LGPO definitions...
+[17:35:52] [DIV] -------------------------------------------------------------
+[17:35:52] [INFO] Set: Computer: Enables Activity Feed
+[17:35:52] [PASS] EnableActivityFeed = 0
+[17:35:52] [DETAIL] Recent lists in Start Menu
+[17:35:52] [DIV] -------------------------------------------------------------
+[17:35:52] [INFO] Set: Computer: Allow publishing of User Activities
+[17:35:52] [PASS] PublishUserActivities = 0
+[17:35:52] [DIV] -------------------------------------------------------------
+[17:35:52] [INFO] Set: Computer: Allow upload of User Activities
+[17:35:52] [PASS] UploadUserActivities = 0
+[17:35:52] [DIV] -------------------------------------------------------------
+[17:35:52] [DETAIL] LGPO collection complete
+[17:35:52] [DETAIL] Activity Feed complete
+[17:35:52] [SECT] -------------------------------------------------------------
+[17:35:52] [SECT]                        App Permissions                       
+[17:35:52] [SECT] -------------------------------------------------------------
+[17:35:52] [DETAIL] No Registry definitions to process.
+[17:35:52] [DETAIL] Collecting LGPO definitions...
+[17:35:52] [DIV] -------------------------------------------------------------
+[17:35:52] [INFO] Set: Computer: Let Windows apps run in the background
+[17:35:52] [PASS] LetAppsRunInBackground = 2
+[17:35:52] [DETAIL] Apps > Installed apps > App Name > Advanced options: Background app permissions
+[17:35:52] [DIV] -------------------------------------------------------------
+[17:35:52] [INFO] Set: Computer: Let Windows apps access location
+[17:35:52] [PASS] LetAppsAccessLocation = 2
+[17:35:52] [DETAIL] Privacy & Security > Location
+[17:35:52] [DETAIL] Useful for web browsing
+[17:35:52] [DIV] -------------------------------------------------------------
+[17:35:52] [INFO] Set: Computer: Let Windows apps access the camera
+[17:35:52] [PASS] LetAppsAccessCamera = 2
+[17:35:52] [DETAIL] Privacy & Security > Camera
+[17:35:52] [DIV] -------------------------------------------------------------
+[17:35:52] [INFO] Set: Computer: Let Windows apps access the microphone
+[17:35:52] [PASS] LetAppsAccessMicrophone = 2
+[17:35:52] [DETAIL] Privacy & Security > Microphone
+[17:35:52] [DETAIL] Required for gaming headset mic
+[17:35:52] [DIV] -------------------------------------------------------------
+[17:35:52] [INFO] Set: Computer: Let Windows apps activate with voice
+[17:35:52] [PASS] LetAppsActivateWithVoice = 2
+[17:35:52] [DETAIL] Privacy & Security > Voice activation
+[17:35:52] [DIV] -------------------------------------------------------------
+[17:35:52] [INFO] Set: Computer: Let Windows apps activate with voice while the system is locked
+[17:35:52] [PASS] LetAppsActivateWithVoiceAboveLock = 2
+[17:35:52] [DETAIL] Privacy & Security > Voice activation
+[17:35:52] [DIV] -------------------------------------------------------------
+[17:35:52] [INFO] Set: Computer: Let Windows apps access notifications
+[17:35:52] [PASS] LetAppsAccessNotifications = 2
+[17:35:52] [DETAIL] Privacy & Security > Notifications
+[17:35:52] [DIV] -------------------------------------------------------------
+[17:35:52] [INFO] Set: Computer: Let Windows apps access account information
+[17:35:52] [PASS] LetAppsAccessAccountInfo = 2
+[17:35:52] [DETAIL] Privacy & Security > Account info
+[17:35:52] [DIV] -------------------------------------------------------------
+[17:35:52] [INFO] Set: Computer: Let Windows apps access contacts
+[17:35:52] [PASS] LetAppsAccessContacts = 2
+[17:35:52] [DETAIL] Privacy & Security > Contacts
+[17:35:52] [DIV] -------------------------------------------------------------
+[17:35:52] [INFO] Set: Computer: Let Windows apps access the calendar
+[17:35:52] [PASS] LetAppsAccessCalendar = 2
+[17:35:52] [DETAIL] Privacy & Security > Calendar
+[17:35:52] [DIV] -------------------------------------------------------------
+[17:35:52] [INFO] Set: Computer: Let Windows apps make phone calls
+[17:35:52] [PASS] LetAppsAccessPhone = 2
+[17:35:52] [DETAIL] Privacy & Security > Phone calls
+[17:35:52] [DIV] -------------------------------------------------------------
+[17:35:52] [INFO] Set: Computer: Let Windows apps access call history
+[17:35:52] [PASS] LetAppsAccessCallHistory = 2
+[17:35:52] [DETAIL] Privacy & Security > Call history
+[17:35:52] [DIV] -------------------------------------------------------------
+[17:35:52] [INFO] Set: Computer: Let Windows apps access email
+[17:35:52] [PASS] LetAppsAccessEmail = 2
+[17:35:52] [DETAIL] Privacy & Security > Email
+[17:35:52] [DIV] -------------------------------------------------------------
+[17:35:52] [INFO] Set: Computer: Let Windows apps access Tasks
+[17:35:52] [PASS] LetAppsAccessTasks = 2
+[17:35:52] [DETAIL] Privacy & Security > Tasks
+[17:35:52] [DIV] -------------------------------------------------------------
+[17:35:52] [INFO] Set: Computer: Let Windows apps access messaging
+[17:35:52] [PASS] LetAppsAccessMessaging = 2
+[17:35:52] [DETAIL] Privacy & Security > Messaging 
+[17:35:52] [DIV] -------------------------------------------------------------
+[17:35:52] [INFO] Set: Computer: Let Windows apps control radios
+[17:35:52] [PASS] LetAppsAccessRadios = 2
+[17:35:52] [DETAIL] Privacy & Security > Radios
+[17:35:52] [DIV] -------------------------------------------------------------
+[17:35:52] [INFO] Set: Computer: Let Windows apps communicate with unpaired devices
+[17:35:52] [PASS] LetAppsSyncWithDevices = 2
+[17:35:52] [DETAIL] Privacy & Security > Other devices
+[17:35:52] [DIV] -------------------------------------------------------------
+[17:35:52] [INFO] Set: Computer: Let Windows apps access trusted devices
+[17:35:52] [PASS] LetAppsAccessTrustedDevices = 2
+[17:35:52] [DETAIL] Privacy & Security > Other devices
+[17:35:52] [DIV] -------------------------------------------------------------
+[17:35:52] [INFO] Set: Computer: Let Windows apps access diagnostic information about other apps
+[17:35:52] [PASS] LetAppsGetDiagnosticInfo = 2
+[17:35:52] [DETAIL] Privacy & Security > App diagnostics
+[17:35:52] [DIV] -------------------------------------------------------------
+[17:35:52] [INFO] Set: Computer: Let Windows apps turn off the screenshot border
+[17:35:52] [PASS] LetAppsAccessGraphicsCaptureWithoutBorder = 2
+[17:35:52] [DETAIL] Privacy & Security > Screenshot borders
+[17:35:52] [DIV] -------------------------------------------------------------
+[17:35:52] [INFO] Set: Computer: Let Windows apps take screenshots of various windows or displays
+[17:35:52] [PASS] LetAppsAccessGraphicsCaptureProgrammatic = 2
+[17:35:52] [DETAIL] Privacy & Security > Screenshots and screen recording
+[17:35:52] [DIV] -------------------------------------------------------------
+[17:35:52] [INFO] Set: Computer: Let Windows apps make use of Text and image generation features of Windows
+[17:35:52] [PASS] LetAppsAccessSystemAIModels = 2
+[17:35:52] [DETAIL] Privacy & Security > Text xnd image generation
+[17:35:52] [DIV] -------------------------------------------------------------
+[17:35:52] [DETAIL] LGPO collection complete
+[17:35:52] [DETAIL] App Permissions complete
+[17:35:52] [SECT] -------------------------------------------------------------
+[17:35:52] [SECT]                       Clipboard History                      
+[17:35:52] [SECT] -------------------------------------------------------------
+[17:35:52] [DETAIL] No Registry definitions to process.
+[17:35:52] [DETAIL] Collecting LGPO definitions...
+[17:35:52] [DIV] -------------------------------------------------------------
+[17:35:52] [INFO] Set: Computer: Allow Clipboard History
+[17:35:52] [PASS] AllowClipboardHistory = 0
+[17:35:52] [DETAIL] System > Clipboard: Clipboard history
+[17:35:52] [DIV] -------------------------------------------------------------
+[17:35:52] [INFO] Set: Computer: Allow Clipboard synchronization
+[17:35:52] [PASS] AllowCrossDeviceClipboard = 0
+[17:35:52] [DETAIL] System > Clipboard: Clipboard history across your devices
+[17:35:52] [DIV] -------------------------------------------------------------
+[17:35:52] [DETAIL] LGPO collection complete
+[17:35:52] [DETAIL] Clipboard History complete
+[17:35:52] [SECT] -------------------------------------------------------------
+[17:35:52] [SECT]                         Cloud Content                        
+[17:35:52] [SECT] -------------------------------------------------------------
+[17:35:52] [DETAIL] No Registry definitions to process.
+[17:35:52] [DETAIL] Collecting LGPO definitions...
+[17:35:52] [DIV] -------------------------------------------------------------
+[17:35:52] [INFO] Set: Computer: Allow Cloud Search
+[17:35:52] [PASS] AllowCloudSearch = 0
+[17:35:52] [DIV] -------------------------------------------------------------
+[17:35:52] [INFO] Set: Computer: Turn off cloud consumer account state content
+[17:35:52] [PASS] DisableConsumerAccountStateContent = 1
+[17:35:52] [DIV] -------------------------------------------------------------
+[17:35:52] [INFO] Set: Computer: Turn off cloud optimized content
+[17:35:52] [PASS] DisableCloudOptimizedContent = 1
+[17:35:52] [DIV] -------------------------------------------------------------
+[17:35:52] [DETAIL] LGPO collection complete
+[17:35:52] [DETAIL] Cloud Content complete
+[17:35:52] [SECT] -------------------------------------------------------------
+[17:35:52] [SECT]                     Windows Copilot & AI                     
+[17:35:52] [SECT] -------------------------------------------------------------
+[17:35:52] [DETAIL] No Registry definitions to process.
+[17:35:52] [DETAIL] Collecting LGPO definitions...
+[17:35:52] [DIV] -------------------------------------------------------------
+[17:35:52] [INFO] Set: Computer: Allow Recall to be enabled
+[17:35:52] [PASS] AllowRecallEnablement = 0
+[17:35:52] [DIV] -------------------------------------------------------------
+[17:35:52] [INFO] Set: Computer: Allow export of Recall and snapshot information
+[17:35:52] [PASS] AllowRecallExport = 0
+[17:35:52] [DIV] -------------------------------------------------------------
+[17:35:52] [INFO] Set: Computer: Turn off saving snapshots for use with Recall
+[17:35:52] [PASS] DisableAIDataAnalysis = 1
+[17:35:52] [DIV] -------------------------------------------------------------
+[17:35:52] [INFO] Set: Computer: Disable Click to Do
+[17:35:52] [PASS] DisableClickToDo = 1
+[17:35:52] [DIV] -------------------------------------------------------------
+[17:35:52] [INFO] Set: Computer: Disable Settings agentic search experience
+[17:35:52] [PASS] DisableSettingsAgent = 1
+[17:35:52] [DIV] -------------------------------------------------------------
+[17:35:52] [INFO] Set: User: Turn off Windows Copilot
+[17:35:52] [PASS] TurnOffWindowsCopilot = 1
+[17:35:52] [DIV] -------------------------------------------------------------
+[17:35:52] [DETAIL] LGPO collection complete
+[17:35:52] [DETAIL] Windows Copilot & AI complete
+[17:35:52] [SECT] -------------------------------------------------------------
+[17:35:52] [SECT]                        Diagnostic Data                       
+[17:35:52] [SECT] -------------------------------------------------------------
+[17:35:52] [DETAIL] No Registry definitions to process.
+[17:35:52] [DETAIL] Collecting LGPO definitions...
+[17:35:52] [DIV] -------------------------------------------------------------
+[17:35:52] [INFO] Set: Computer: Allow Diagnostic Data
+[17:35:52] [PASS] AllowTelemetry = 0
+[17:35:52] [DETAIL] Privacy & Security > Diagnostics & Feedback: Feedback Frequency (hidden)
+[17:35:52] [DIV] -------------------------------------------------------------
+[17:35:52] [INFO] Set: Computer: Allow device name to be sent in Windows diagnostic data
+[17:35:52] [PASS] AllowDeviceNameInTelemetry = 0
+[17:35:52] [DIV] -------------------------------------------------------------
+[17:35:52] [INFO] Set: Computer: Limit Diagnostic Log Collection
+[17:35:52] [PASS] LimitDiagnosticLogCollection = 1
+[17:35:52] [DIV] -------------------------------------------------------------
+[17:35:52] [INFO] Set: Computer: Limit Dump Collection
+[17:35:52] [PASS] LimitDumpCollection = 1
+[17:35:52] [DIV] -------------------------------------------------------------
+[17:35:52] [INFO] Set: Computer: Limit optional diagnostic data for Desktop Analytics
+[17:35:52] [PASS] LimitEnhancedDiagnosticDataWindowsAnalytics = 1
+[17:35:52] [DETAIL] Use in combination with 'Allow Diagnostic Data'
+[17:35:52] [DIV] -------------------------------------------------------------
+[17:35:52] [INFO] Set: User: Do not use diagnostic data for tailored experiences
+[17:35:52] [PASS] DisableTailoredExperiencesWithDiagnosticData = 1
+[17:35:52] [DETAIL] Disables: Privacy & Security > Diagnostics & Feedback: Tailored Experiences
+[17:35:52] [DIV] -------------------------------------------------------------
+[17:35:52] [DETAIL] LGPO collection complete
+[17:35:52] [DETAIL] Diagnostic Data complete
+[17:35:52] [SECT] -------------------------------------------------------------
+[17:35:52] [SECT]                         File Explorer                        
+[17:35:52] [SECT] -------------------------------------------------------------
+[17:35:52] [DETAIL] Processing Registry definitions...
+[17:35:52] [DIV] -------------------------------------------------------------
+[17:35:52] [INFO] File Explorer > Navigation pane: Home directory
+[17:35:52] [PASS] Set: System.IsPinnedToNameSpaceTree = 0
+[17:35:52] [DETAIL] -------------------------------------------------------------
+[17:35:52] [INFO] File Explorer > Navigation pane: Gallery directory
+[17:35:52] [PASS] Set: System.IsPinnedToNameSpaceTree = 0
+[17:35:52] [DETAIL] -------------------------------------------------------------
+[17:35:52] [INFO] File Explorer > Options: Open to 'This PC'
+[17:35:52] [PASS] Set: LaunchTo = 1
+[17:35:52] [DETAIL] -------------------------------------------------------------
+[17:35:52] [INFO] File Explorer > Options: Show recent files / frequent folders
+[17:35:52] [PASS] Set: ShowFrequent = 0
+[17:35:52] [DETAIL] -------------------------------------------------------------
+[17:35:52] [INFO] File Explorer > Options: Show Office.com files
+[17:35:52] [PASS] Set: ShowCloudFilesInQuickAccess = 0
+[17:35:52] [DETAIL] -------------------------------------------------------------
+[17:35:52] [INFO] System > Advanced > File Explorer: Show file extensions
+[17:35:52] [PASS] Set: HideFileExt = 0
+[17:35:52] [DETAIL] -------------------------------------------------------------
+[17:35:52] [INFO] System > Advanced > File Explorer: Show hidden and system file
+[17:35:52] [PASS] Set: ShowSuperHidden = 1
+[17:35:52] [DETAIL] -------------------------------------------------------------
+[17:35:52] [INFO] System > Advanced > File Explorer: Show hidden and system file
+[17:35:52] [PASS] Set: Hidden = 1
+[17:35:52] [DETAIL] -------------------------------------------------------------
+[17:35:52] [DETAIL] Registry definitions complete
+[17:35:52] [PASS] File Explorer: Restore Windows 10 context menu
+[17:35:52] [DETAIL] No LGPO definitions to process
+[17:35:52] [DETAIL] File Explorer complete
+[17:35:52] [SECT] -------------------------------------------------------------
+[17:35:52] [SECT]                            Gaming                            
+[17:35:52] [SECT] -------------------------------------------------------------
+[17:35:52] [DETAIL] Processing Registry definitions...
+[17:35:52] [DIV] -------------------------------------------------------------
+[17:35:52] [INFO] Gaming > Game Mode: Game Mode
+[17:35:52] [PASS] Set: AutoGameModeEnabled = 0
+[17:35:52] [DETAIL] -------------------------------------------------------------
+[17:35:52] [INFO] Gaming > Game Bar : Allow your controller to open Game Bar
+[17:35:52] [PASS] Set: UseNexusForGameBarEnabled = 0
+[17:35:52] [DETAIL] -------------------------------------------------------------
+[17:35:52] [INFO] Gaming > Captures: Record what happened
+[17:35:52] [PASS] Set: AppCaptureEnabled = 0
+[17:35:52] [DETAIL] -------------------------------------------------------------
+[17:35:52] [INFO] Gaming > Captures: Record what happened
+[17:35:52] [PASS] Set: HistoricalCaptureEnabled = 0
+[17:35:52] [DETAIL] -------------------------------------------------------------
+[17:35:52] [INFO] Gaming > Captures: Capture audio when recording a game
+[17:35:52] [PASS] Set: AudioCaptureEnabled = 0
+[17:35:52] [DETAIL] -------------------------------------------------------------
+[17:35:52] [INFO] Gaming > Captures: Capture mouse cursor when recording a game
+[17:35:52] [PASS] Set: CursorCaptureEnabled = 0
+[17:35:52] [DETAIL] -------------------------------------------------------------
+[17:35:52] [DETAIL] Registry definitions complete
+[17:35:52] [DETAIL] No LGPO definitions to process
+[17:35:52] [DETAIL] Gaming complete
+[17:35:52] [SECT] -------------------------------------------------------------
+[17:35:52] [SECT]                         Ink Workspace                        
+[17:35:52] [SECT] -------------------------------------------------------------
+[17:35:52] [DETAIL] Processing Registry definitions...
+[17:35:52] [DIV] -------------------------------------------------------------
+[17:35:52] [INFO] Registry: Pen: Press and hold for right-click
+[17:35:52] [PASS] Set: HoldMode = 3
+[17:35:52] [DETAIL] Removes the blue circle animation that causes brush lag.
+[17:35:52] [DETAIL] -------------------------------------------------------------
+[17:35:52] [INFO] Registry: Pen: Flicks 
+[17:35:52] [PASS] Set: FlickMode = 0
+[17:35:52] [DETAIL] Prevents rapid pen strokes from being interpreted as navigation gestures.
+[17:35:52] [DETAIL] -------------------------------------------------------------
+[17:35:52] [DETAIL] Registry definitions complete
+[17:35:52] [DETAIL] Collecting LGPO definitions...
+[17:35:52] [DIV] -------------------------------------------------------------
+[17:35:52] [INFO] Set: Computer: Allow Windows Ink Workspace
+[17:35:52] [PASS] AllowWindowsInkWorkspace = 0
+[17:35:52] [DETAIL] Prevents Whiteboard and Snip overlays from interfering with tablet focus.
+[17:35:52] [DIV] -------------------------------------------------------------
+[17:35:52] [DETAIL] LGPO collection complete
+[17:35:53] [DETAIL] Ink Workspace complete
+[17:35:53] [SECT] -------------------------------------------------------------
+[17:35:53] [SECT]                        Microsoft Edge                        
+[17:35:53] [SECT] -------------------------------------------------------------
+[17:35:53] [DETAIL] Processing Registry definitions...
+[17:35:53] [DIV] -------------------------------------------------------------
+[17:35:53] [INFO] Registry: Chromium-based Edge: Disable Startup Boost
+[17:35:53] [PASS] Set: StartupBoostEnabled = 0
+[17:35:53] [DETAIL] -------------------------------------------------------------
+[17:35:53] [INFO] Registry: Chromium-based Edge: Disable Background Apps
+[17:35:53] [PASS] Set: BackgroundModeEnabled = 0
+[17:35:53] [DETAIL] -------------------------------------------------------------
+[17:35:53] [INFO] Registry: Chromium-based Edge: Quick Sleep Tabs (Performance)
+[17:35:53] [PASS] Set: SleepingTabsTimeout = 30
+[17:35:53] [DETAIL] -------------------------------------------------------------
+[17:35:53] [DETAIL] Registry definitions complete
+[17:35:53] [DETAIL] No LGPO definitions to process
+[17:35:53] [DETAIL] Microsoft Edge complete
+[17:35:53] [SECT] -------------------------------------------------------------
+[17:35:53] [SECT]                         Notifications                        
+[17:35:53] [SECT] -------------------------------------------------------------
+[17:35:53] [DETAIL] Processing Registry definitions...
+[17:35:53] [DIV] -------------------------------------------------------------
+[17:35:53] [INFO] System > Notifications > Additional Settings: Get tips and suggestions when using Windows
+[17:35:53] [PASS] Set: SoftLandingEnabled = 0
+[17:35:53] [DETAIL] -------------------------------------------------------------
+[17:35:53] [INFO] System > Notifications > Additional Settings: Show the Windows Welcome Experience after...
+[17:35:53] [PASS] Set: SubscribedContent-353694Enabled = 0
+[17:35:53] [DETAIL] -------------------------------------------------------------
+[17:35:53] [INFO] System > Notifications > Additional Settings: Suggest ways to get the most out of Windows...
+[17:35:53] [PASS] Set: ScoobeSystemSettingEnabled = 0
+[17:35:53] [DETAIL] -------------------------------------------------------------
+[17:35:53] [INFO] Privacy & Security > General: Show me notification is the settings app
+[17:35:53] [PASS] Set: EnableAccountNotifications = 0
+[17:35:53] [DETAIL] -------------------------------------------------------------
+[17:35:53] [DETAIL] Registry definitions complete
+[17:35:53] [DETAIL] Collecting LGPO definitions...
+[17:35:53] [DIV] -------------------------------------------------------------
+[17:35:53] [INFO] Set: Computer: Turn off Toast Notifications
+[17:35:53] [PASS] NoToastApplicationNotification = 1
+[17:35:53] [DETAIL] System > Notifications: Notifications
+[17:35:53] [DETAIL] System > Notifications: Notifications from apps and other senders
+[17:35:53] [DIV] -------------------------------------------------------------
+[17:35:53] [DETAIL] LGPO collection complete
+[17:35:53] [DETAIL] Notifications complete
+[17:35:53] [SECT] -------------------------------------------------------------
+[17:35:53] [SECT]                           OneDrive                           
+[17:35:53] [SECT] -------------------------------------------------------------
+[17:35:53] [DETAIL] No Registry definitions to process.
+[17:35:53] [DETAIL] Collecting LGPO definitions...
+[17:35:53] [DIV] -------------------------------------------------------------
+[17:35:53] [INFO] Set: Computer: Prevent the usage of OneDrive for file storage
+[17:35:53] [PASS] DisableFileSyncNGSC = 1
+[17:35:53] [DIV] -------------------------------------------------------------
+[17:35:53] [INFO] Set: Computer: Prevent OneDrive from generating network traffic until the user signs in to OneDrive
+[17:35:53] [PASS] PreventNetworkTrafficPreUserSignIn = 1
+[17:35:53] [DIV] -------------------------------------------------------------
+[17:35:53] [DETAIL] LGPO collection complete
+[17:35:53] [DETAIL] OneDrive complete
+[17:35:53] [SECT] -------------------------------------------------------------
+[17:35:53] [SECT]                        Personalization                       
+[17:35:53] [SECT] -------------------------------------------------------------
+[17:35:53] [DETAIL] Processing Registry definitions...
+[17:35:53] [DIV] -------------------------------------------------------------
+[17:35:53] [INFO] Personalization > Colors: Dark mode (system)
+[17:35:53] [PASS] Set: SystemUsesLightTheme = 0
+[17:35:53] [DETAIL] -------------------------------------------------------------
+[17:35:53] [INFO] Personalization > Colors: Dark mode (apps)
+[17:35:53] [PASS] Set: AppsUseLightTheme = 0
+[17:35:53] [DETAIL] -------------------------------------------------------------
+[17:35:53] [INFO] Personalization > Colors: Transparency effects
+[17:35:53] [PASS] Set: EnableTransparency = 0
+[17:35:53] [DETAIL] -------------------------------------------------------------
+[17:35:53] [INFO] Bluetooth & Devices > Mouse: Additional mouse settings: Mouse Options > Pointer Options: Enhance pointer precision
+[17:35:53] [PASS] Set: MouseSpeed = 0
+[17:35:53] [DETAIL] Ensures cursor movement is 1:1 with physical hand movement
+[17:35:53] [DETAIL] -------------------------------------------------------------
+[17:35:53] [INFO] Bluetooth & Devices > Mouse: Additional mouse settings: Mouse Options > Pointer Options: Enhance pointer precision
+[17:35:53] [PASS] Set: MouseThreshold1 = 0
+[17:35:53] [DETAIL] -------------------------------------------------------------
+[17:35:53] [INFO] Bluetooth & Devices > Mouse: Additional mouse settings: Mouse Options > Pointer Options: Enhance pointer precision
+[17:35:53] [PASS] Set: MouseThreshold2 = 0
+[17:35:53] [DETAIL] -------------------------------------------------------------
+[17:35:53] [INFO] Bluetooth & Devices > Mouse: Additional mouse settings: Mouse Options > Pointer Options: Display pointer trails
+[17:35:53] [PASS] Set: MouseTrails = 0
+[17:35:53] [DETAIL] -------------------------------------------------------------
+[17:35:53] [INFO] Accessibility > Keyboard > Sticky keys: Keyboard shortcut for Sticky keys
+[17:35:53] [PASS] Set: Flags = 506
+[17:35:53] [DETAIL] -------------------------------------------------------------
+[17:35:53] [INFO] Registry: Windows: Min/max/close animation
+[17:35:53] [PASS] Set: MinAnimate = 0
+[17:35:53] [DETAIL] -------------------------------------------------------------
+[17:35:53] [INFO] Registry: Display: Multi-monitor mode change animations
+[17:35:53] [PASS] Set: W8OnStopScreenModeChange = 0
+[17:35:53] [DETAIL] -------------------------------------------------------------
+[17:35:53] [DETAIL] Registry definitions complete
+[17:35:53] [DETAIL] Collecting LGPO definitions...
+[17:35:53] [DIV] -------------------------------------------------------------
+[17:35:53] [INFO] Set: Computer: Continue experiences on this device
+[17:35:53] [PASS] EnableCdp = 0
+[17:35:53] [DETAIL] System > Remote Desktop: Remote Desktop
+[17:35:53] [DIV] -------------------------------------------------------------
+[17:35:53] [DETAIL] LGPO collection complete
+[17:35:53] [DETAIL] Personalization complete
+[17:35:53] [SECT] -------------------------------------------------------------
+[17:35:53] [SECT]                           Search                             
+[17:35:53] [SECT] -------------------------------------------------------------
+[17:35:53] [DETAIL] Processing Registry definitions...
+[17:35:53] [DIV] -------------------------------------------------------------
+[17:35:53] [INFO] Privacy & Security > Search: Search history
+[17:35:53] [PASS] Set: IsDeviceSearchHistoryEnabled = 0
+[17:35:53] [DETAIL] -------------------------------------------------------------
+[17:35:53] [INFO] None: Disable Bing web results system wide
+[17:35:53] [PASS] Set: BingSearchEnabled = 0
+[17:35:53] [DETAIL] -------------------------------------------------------------
+[17:35:53] [DETAIL] Registry definitions complete
+[17:35:53] [DETAIL] Collecting LGPO definitions...
+[17:35:53] [DIV] -------------------------------------------------------------
+[17:35:53] [INFO] Set: Computer: Allow search highlights
+[17:35:53] [PASS] EnableDynamicContentInWSB = 0
+[17:35:53] [DETAIL] Privacy & Security > Search: Search highlights
+[17:35:53] [DIV] -------------------------------------------------------------
+[17:35:53] [DETAIL] LGPO collection complete
+[17:35:53] [DETAIL] Search complete
+[17:35:53] [SECT] -------------------------------------------------------------
+[17:35:53] [SECT]                       Windows Spotlight                      
+[17:35:53] [SECT] -------------------------------------------------------------
+[17:35:53] [DETAIL] No Registry definitions to process.
+[17:35:53] [DETAIL] Collecting LGPO definitions...
+[17:35:53] [DIV] -------------------------------------------------------------
+[17:35:53] [INFO] Set: User: Turn off all Windows spotlight features
+[17:35:53] [PASS] DisableWindowsSpotlightFeatures = 1
+[17:35:53] [DETAIL] Disables: Start Menu search: Windows Spotlight content
+[17:35:53] [DETAIL] Removes: Personalize > Background: Windows Spotlight option
+[17:35:53] [DIV] -------------------------------------------------------------
+[17:35:53] [INFO] Set: User: Turn off Spotlight collection on Desktop
+[17:35:53] [PASS] DisableSpotlightCollectionOnDesktop = 1
+[17:35:53] [DIV] -------------------------------------------------------------
+[17:35:53] [INFO] Set: User: Turn off Windows Spotlight on Action Center
+[17:35:53] [PASS] DisableWindowsSpotlightOnActionCenter = 1
+[17:35:53] [DIV] -------------------------------------------------------------
+[17:35:53] [INFO] Set: User: Turn off Windows Spotlight on Settings
+[17:35:53] [PASS] DisableWindowsSpotlightOnSettings = 1
+[17:35:53] [DIV] -------------------------------------------------------------
+[17:35:53] [INFO] Set: User: Do not suggest third-party content in Windows spotlight
+[17:35:53] [PASS] DisableThirdPartySuggestions = 1
+[17:35:53] [DIV] -------------------------------------------------------------
+[17:35:53] [DETAIL] LGPO collection complete
+[17:35:53] [DETAIL] Windows Spotlight complete
+[17:35:53] [SECT] -------------------------------------------------------------
+[17:35:53] [SECT]                          Start Menu                          
+[17:35:53] [SECT] -------------------------------------------------------------
+[17:35:53] [DETAIL] Processing Registry definitions...
+[17:35:53] [DIV] -------------------------------------------------------------
+[17:35:53] [INFO] System > Start: Show mobile devices in Start
+[17:35:53] [PASS] Set: IsEnabled = 0
+[17:35:53] [DETAIL] -------------------------------------------------------------
+[17:35:53] [INFO] Personalization > Start: Show recommendations for tips, shortcuts, new apps, and more
+[17:35:53] [PASS] Set: Start_IrisRecommendations = 0
+[17:35:53] [DETAIL] -------------------------------------------------------------
+[17:35:53] [INFO] Personalization > Start: Show account-related notifications
+[17:35:53] [PASS] Set: Start_AccountNotifications = 0
+[17:35:53] [DETAIL] -------------------------------------------------------------
+[17:35:53] [DETAIL] Registry definitions complete
+[17:35:53] [DETAIL] Collecting LGPO definitions...
+[17:35:53] [DIV] -------------------------------------------------------------
+[17:35:53] [INFO] Set: Computer: Do not keep history of recently opened documents
+[17:35:53] [PASS] NoRecentDocsHistory = 1
+[17:35:53] [DETAIL] Personalization > Start: Show recommended files in Start, recent files in Explorer, items in Jump Lists 
+[17:35:53] [DIV] -------------------------------------------------------------
+[17:35:53] [INFO] Set: Computer: Remove All Programs list from the Start menu
+[17:35:53] [PASS] NoStartMenuMorePrograms = 1
+[17:35:53] [DIV] -------------------------------------------------------------
+[17:35:53] [INFO] Set: Computer: Remove 'Recently added' list from Start Menu
+[17:35:53] [PASS] HideRecentlyAddedApps = 1
+[17:35:53] [DETAIL] Personalization > Start: Show recently added apps
+[17:35:53] [DIV] -------------------------------------------------------------
+[17:35:53] [INFO] Set: Computer: Remove Personalized Website Recommendations from the Recommended section in the Start Menu
+[17:35:53] [PASS] HideRecommendedPersonalizedSites = 1
+[17:35:53] [DETAIL] Personalization > Start: Show websites from browsing history 
+[17:35:53] [DIV] -------------------------------------------------------------
+[17:35:53] [INFO] Set: Computer: Show or hide 'Most used' list from Start menu
+[17:35:53] [PASS] ShowOrHideMostUsedApps = 2
+[17:35:53] [DETAIL] Personalization > Start: Show most used apps
+[17:35:53] [DIV] -------------------------------------------------------------
+[17:35:53] [INFO] Set: User: Turn off display of recent search entries in the File Explorer search box
+[17:35:53] [PASS] DisableSearchBoxSuggestions = 1
+[17:35:53] [DETAIL] Start menu 'Search the web' results
+[17:35:53] [DIV] -------------------------------------------------------------
+[17:35:53] [INFO] Set: Computer: Continue experiences on this device
+[17:35:53] [PASS] EnableCdp = 0
+[17:35:53] [DETAIL] System > Nearby Sharing: Nearby Sharing
+[17:35:53] [DIV] -------------------------------------------------------------
+[17:35:53] [DETAIL] LGPO collection complete
+[17:35:53] [DETAIL] Start Menu complete
+[17:35:53] [SECT] -------------------------------------------------------------
+[17:35:53] [SECT]                            Taskbar                           
+[17:35:53] [SECT] -------------------------------------------------------------
+[17:35:53] [DETAIL] Processing Registry definitions...
+[17:35:53] [DIV] -------------------------------------------------------------
+[17:35:53] [INFO] Personalization > Taskbar > Taskbar behaviors: Taskbar alignment
+[17:35:53] [PASS] Set: TaskbarAl = 1
+[17:35:53] [DETAIL] -------------------------------------------------------------
+[17:35:53] [INFO] System > Advanced: End Task
+[17:35:53] [PASS] Set: TaskbarEndTask = 1
+[17:35:53] [DETAIL] -------------------------------------------------------------
+[17:35:53] [DETAIL] Registry definitions complete
+[17:35:53] [DETAIL] Collecting LGPO definitions...
+[17:35:53] [DIV] -------------------------------------------------------------
+[17:35:53] [INFO] Set: Computer: Hide the TaskView button
+[17:35:53] [PASS] HideTaskViewButton = 1
+[17:35:53] [DETAIL] Personalization > Taskbar: Task view
+[17:35:53] [DIV] -------------------------------------------------------------
+[17:35:53] [INFO] Set: Computer: Configures search on the taskbar
+[17:35:53] [PASS] SearchOnTaskbarMode = 0
+[17:35:53] [DETAIL] Personalization > Taskbar: Search
+[17:35:53] [DIV] -------------------------------------------------------------
+[17:35:53] [DETAIL] LGPO collection complete
+[17:35:53] [DETAIL] Taskbar complete
+[17:35:53] [SECT] -------------------------------------------------------------
+[17:35:53] [SECT]                           Telemetry                          
+[17:35:53] [SECT] -------------------------------------------------------------
+[17:35:53] [DETAIL] Processing Registry definitions...
+[17:35:53] [DIV] -------------------------------------------------------------
+[17:35:53] [INFO] Privacy & Security > General: Let websites show me locally relevant content
+[17:35:53] [PASS] Set: HttpAcceptLanguageOptOut = 1
+[17:35:53] [DETAIL] -------------------------------------------------------------
+[17:35:53] [INFO] None: Disable telemetry about user profile usage
+[17:35:53] [PASS] Set: UserProfileEngagementConfig = 0
+[17:35:53] [DETAIL] -------------------------------------------------------------
+[17:35:53] [INFO] None: Prevent Microsoft from remotely enabling experimental UI changes
+[17:35:53] [PASS] Set: FeatureManagementEnabled = 0
+[17:35:53] [DETAIL] -------------------------------------------------------------
+[17:35:53] [INFO] None: Disable ads in Settings app and system flyouts
+[17:35:53] [PASS] Set: SystemPaneSuggestionsEnabled = 0
+[17:35:53] [DETAIL] -------------------------------------------------------------
+[17:35:53] [INFO] None: Disable CDM's ability to pull down third-party apps and ads
+[17:35:53] [PASS] Set: ContentDeliveryAllowed = 0
+[17:35:53] [DETAIL] -------------------------------------------------------------
+[17:35:53] [INFO] None: Subscriber Content: Welcome Experience and Lock Screen suggestions
+[17:35:53] [PASS] Set: SubscribedContent-338387Enabled = 0
+[17:35:53] [DETAIL] -------------------------------------------------------------
+[17:35:53] [INFO] None: Subscriber Content: Suggestions in Settings app
+[17:35:53] [PASS] Set: SubscribedContent-338393Enabled = 0
+[17:35:53] [DETAIL] -------------------------------------------------------------
+[17:35:53] [INFO] None: Subscriber Content: OOBE reminders
+[17:35:53] [PASS] Set: SubscribedContent-353696Enabled = 0
+[17:35:53] [DETAIL] -------------------------------------------------------------
+[17:35:53] [INFO] LEGACY System Notifications > Advanced Settings: Suggest ways to get the most out of Windows...
+[17:35:53] [PASS] Set: SubscribedContent-310093Enabled = 0
+[17:35:53] [DETAIL] -------------------------------------------------------------
+[17:35:53] [INFO] LEGACY System > Notifications > Additional Settings: Get tips and suggestions when using Windows
+[17:35:53] [PASS] Set: SubscribedContent-338389Enabled = 0
+[17:35:53] [DETAIL] -------------------------------------------------------------
+[17:35:53] [DETAIL] Registry definitions complete
+[17:35:53] [DETAIL] Collecting LGPO definitions...
+[17:35:53] [DIV] -------------------------------------------------------------
+[17:35:53] [INFO] Set: Computer: Turn off Windows Customer Experience Improvement Program
+[17:35:53] [PASS] CEIPEnable = 1
+[17:35:53] [DIV] -------------------------------------------------------------
+[17:35:53] [INFO] Set: Computer: Turn off Microsoft consumer experiences
+[17:35:53] [PASS] DisableWindowsConsumerFeatures = 1
+[17:35:53] [DETAIL] Disables: Bluetooth & Devices > Mobile Devices: Mobile devices
+[17:35:53] [DETAIL] Disables: Bluetooth & Devices > Mobile Devices: Phone Link
+[17:35:53] [DETAIL] Disables: Bluetooth & Devices > Mobile Devices: Show me suggestions
+[17:35:53] [DIV] -------------------------------------------------------------
+[17:35:53] [INFO] Set: User: Turn off the Windows Welcome Experience
+[17:35:53] [PASS] DisableWindowsSpotlightWindowsWelcomeExperience = 1
+[17:35:53] [DIV] -------------------------------------------------------------
+[17:35:53] [INFO] Set: Computer: Turn off the advertising ID
+[17:35:53] [PASS] DisabledByGroupPolicy = 1
+[17:35:53] [DETAIL] Privacy & Security > General: Let apps show me personalized ads
+[17:35:53] [DIV] -------------------------------------------------------------
+[17:35:53] [INFO] Set: User: Turn off user tracking
+[17:35:53] [PASS] NoInstrumentation = 1
+[17:35:53] [DETAIL] Privacy & Security > General: Let Windows improve ... by tracking app launches
+[17:35:53] [DIV] -------------------------------------------------------------
+[17:35:53] [INFO] Set: Computer: Do not show feedback notifications
+[17:35:53] [PASS] DoNotShowFeedbackNotifications = 1
+[17:35:53] [DETAIL] Privacy & Security > Diagnostics & Feedback: Diagnostic Data, Inking and Typing
+[17:35:53] [DIV] -------------------------------------------------------------
+[17:35:53] [INFO] Set: Computer: Do not show Windows tips
+[17:35:53] [PASS] DisableSoftLanding = 1
+[17:35:53] [DIV] -------------------------------------------------------------
+[17:35:53] [INFO] Set: Computer: Allow Online Tips
+[17:35:53] [PASS] AllowOnlineTips = 0
+[17:35:53] [DIV] -------------------------------------------------------------
+[17:35:53] [DETAIL] LGPO collection complete
+[17:35:53] [DETAIL] Telemetry complete
+[17:35:53] [SECT] -------------------------------------------------------------
+[17:35:53] [SECT]                            Widgets                           
+[17:35:53] [SECT] -------------------------------------------------------------
+[17:35:53] [DETAIL] No Registry definitions to process.
+[17:35:53] [DETAIL] Collecting LGPO definitions...
+[17:35:53] [DIV] -------------------------------------------------------------
+[17:35:53] [INFO] Set: Computer: Allow widgets
+[17:35:53] [PASS] AllowNewsAndInterests = 0
+[17:35:53] [DETAIL] Personalization > Taskbar: Widgets
+[17:35:53] [DIV] -------------------------------------------------------------
+[17:35:53] [INFO] Set: Computer: Disable Widgets Board
+[17:35:53] [PASS] DisableWidgetsBoard = 1
+[17:35:53] [DIV] -------------------------------------------------------------
+[17:35:53] [INFO] Set: Computer: Disable Widgets On Lock Screen
+[17:35:53] [PASS] DisableWidgetsOnLockScreen = 1
+[17:35:53] [DIV] -------------------------------------------------------------
+[17:35:53] [DETAIL] LGPO collection complete
+[17:35:53] [DETAIL] Widgets complete
+[17:35:53] [DIV] -------------------------------------------------------------
+[17:35:53] [DETAIL] Subscripts complete
+[17:35:53] [DETAIL] Updating LGPO...
+[17:35:53] [DETAIL] LGPO_Lines.Count = 300
+[17:36:03] [PASS] LGPO update complete
+[17:36:03] [PASS] DNS cache flushed
+[17:36:03] [PASS] Windows Temp directories flushed 
+[17:36:03] [DETAIL] Restarting File Explorer and Taskbar...
+[17:36:05] [PROMPT] A system restart is recommended. Restart now?
+[17:36:11] [DETAIL] User declined restart
+[17:36:11] [WARN] Please restart manually to apply changes
+[17:36:11] [DIV] -------------------------------------------------------------
+[17:36:11] [PASS] Script complete
+

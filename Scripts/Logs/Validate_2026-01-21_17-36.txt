@@ -1,0 +1,681 @@
+﻿[17:36:18] [PASS] Directory exists: C:\Windows-VFX-Optimization\Scripts\Logs
+[17:36:18] [PASS] Log file started: C:\Windows-VFX-Optimization\Scripts\Logs\Validate_2026-01-21_17-36.txt
+[17:36:18] [PASS] LGPO.exe found: C:\Windows-VFX-Optimization\Scripts\LGPO\LGPO.exe
+[17:36:18] [INFO] DEBUG level = 1
+[17:36:18] [PASS] Microcode Version: 0x11A (Safe)
+[17:36:19] [PASS] Windows 2009 detected. 24H2 Scheduler Patch: KB5044384 natively integrated into kernel.
+[17:36:19] [DETAIL] Skipped stopping processes
+[17:36:19] [DETAIL] Skipped: Backup Registry
+[17:36:19] [DETAIL] Skipped: System Restore point
+[17:36:19] [DETAIL] Pre-flight complete. Starting subscripts...
+[17:36:19] [SECT] -------------------------------------------------------------
+[17:36:19] [SECT]                          Performance                         
+[17:36:19] [SECT] -------------------------------------------------------------
+[17:36:19] [DETAIL] Validating Registry definitions...
+[17:36:19] [DIV] -------------------------------------------------------------
+[17:36:19] [INFO] Check: Registry: Increase GPU timeout detection to 60 seconds
+[17:36:19] [PASS] TdrDelay = 60
+[17:36:19] [DIV] -------------------------------------------------------------
+[17:36:19] [INFO] Check: Registry: Increase GPU thread timeout to 60 seconds
+[17:36:19] [PASS] TdrDdiDelay = 60
+[17:36:19] [DIV] -------------------------------------------------------------
+[17:36:19] [INFO] Check: System > Display > Graphics > Change default graphics settings: Hardware-accelerated GPU scheduling
+[17:36:19] [PASS] HwSchMode = 2
+[17:36:19] [DIV] -------------------------------------------------------------
+[17:36:19] [INFO] Check: Registry: Disable Energy Estimation
+[17:36:19] [PASS] MainSession.EnergyEstimationEnabled = 0
+[17:36:19] [DIV] -------------------------------------------------------------
+[17:36:19] [INFO] Check: Registry: Disable Multi-Plane Overlay (MPO)
+[17:36:19] [PASS] OverlayTestMode = 5
+[17:36:19] [DIV] -------------------------------------------------------------
+[17:36:19] [INFO] Check: Registry: Force DirectX apps to prefer the dGPU (RTX) globally
+[17:36:19] [PASS] DirectXUserGlobalSettings = ActiveGpuSelection=1;
+[17:36:19] [DIV] -------------------------------------------------------------
+[17:36:19] [INFO] Check: Core Isolation > Memory Integrity: Memory Integrity (HVCI)
+[17:36:19] [PASS] Enabled = 0
+[17:36:19] [DIV] -------------------------------------------------------------
+[17:36:19] [INFO] Check: Registry: System profile: Reserve 100% CPU for multimedia
+[17:36:19] [PASS] NetworkThrottlingIndex = 4294967295
+[17:36:19] [DIV] -------------------------------------------------------------
+[17:36:19] [INFO] Check: Registry: System profile: Reserve 0% CPU for background tasks
+[17:36:19] [PASS] SystemResponsiveness = 0
+[17:36:19] [DIV] -------------------------------------------------------------
+[17:36:19] [INFO] Check: System Properties > Advanced > Performance Settings > Advanced: Processor Scheduling
+[17:36:19] [PASS] Win32PrioritySeparation = 38
+[17:36:19] [DIV] -------------------------------------------------------------
+[17:36:19] [INFO] Check: System Properties > Advanced > Startup and Recovery Settings: Automatically restart
+[17:36:19] [PASS] AutoReboot = 0
+[17:36:19] [DIV] -------------------------------------------------------------
+[17:36:19] [INFO] Check: Edit Power Plan > Change advance power settings > Processor Performance: Time Check
+[17:36:19] [PASS] Attributes = 2
+[17:36:19] [DIV] -------------------------------------------------------------
+[17:36:19] [INFO] Check: Edit Power Plan > Change advanced power settings > USB settings : Selective Suspend
+[17:36:19] [PASS] Attributes = 2
+[17:36:19] [DIV] -------------------------------------------------------------
+[17:36:19] [DETAIL] Registry validation complete
+[17:36:19] [DETAIL] Validating LGPO definitions...
+[17:36:19] [DIV] -------------------------------------------------------------
+[17:36:19] [INFO] Check: Computer: Turn off Power Throttling
+[17:36:19] [PASS] PowerThrottlingOff = 1
+[17:36:19] [DIV] -------------------------------------------------------------
+[17:36:19] [INFO] Check: Computer: Automatic Maintenance WakeUp Policy
+[17:36:19] [PASS] WakeUp = 0
+[17:36:19] [DIV] -------------------------------------------------------------
+[17:36:19] [DETAIL] LGPO validation complete
+[17:36:19] [DETAIL] Performance complete
+[17:36:19] [SECT] -------------------------------------------------------------
+[17:36:19] [SECT]                           Services                           
+[17:36:19] [SECT] -------------------------------------------------------------
+[17:36:19] [DETAIL] Validate services...
+[17:36:19] [DIV] -------------------------------------------------------------
+[17:36:19] [INFO] Service: DiagTrack
+[17:36:19] [PASS] Service is stopped
+[17:36:19] [PASS] Service is set to Manual
+[17:36:19] [DIV] -------------------------------------------------------------
+[17:36:19] [INFO] Service: WbioSrvc
+[17:36:19] [PASS] Service is stopped
+[17:36:19] [PASS] Service is set to Manual
+[17:36:19] [DIV] -------------------------------------------------------------
+[17:36:19] [INFO] Service: edgeupdate
+[17:36:19] [PASS] Service is stopped
+[17:36:19] [PASS] Service is set to Manual
+[17:36:19] [DIV] -------------------------------------------------------------
+[17:36:19] [INFO] Service: edgeupdatem
+[17:36:19] [PASS] Service is stopped
+[17:36:19] [PASS] Service is set to Manual
+[17:36:19] [DIV] -------------------------------------------------------------
+[17:36:19] [INFO] Service: KAPSService
+[17:36:19] [PASS] Service is stopped
+[17:36:19] [PASS] Service is set to Manual
+[17:36:19] [DIV] -------------------------------------------------------------
+[17:36:19] [INFO] Service: Killer Analytics Service
+[17:36:19] [PASS] Service is stopped
+[17:36:19] [PASS] Service is set to Manual
+[17:36:19] [DIV] -------------------------------------------------------------
+[17:36:19] [INFO] Service: Killer Network Service
+[17:36:19] [PASS] Service is stopped
+[17:36:19] [PASS] Service is set to Manual
+[17:36:19] [DIV] -------------------------------------------------------------
+[17:36:19] [INFO] Service: Killer Provider Data Helper Service
+[17:36:19] [PASS] Service is stopped
+[17:36:19] [PASS] Service is set to Manual
+[17:36:19] [DIV] -------------------------------------------------------------
+[17:36:19] [INFO] Service: KNDBWM
+[17:36:19] [PASS] Service is stopped
+[17:36:19] [PASS] Service is set to Manual
+[17:36:19] [DIV] -------------------------------------------------------------
+[17:36:19] [INFO] Service: WavesAudioService
+[17:36:19] [PASS] Service is stopped
+[17:36:19] [PASS] Service is set to Manual
+[17:36:19] [DIV] -------------------------------------------------------------
+[17:36:19] [INFO] Service: WavesSysSvc
+[17:36:19] [PASS] Service is stopped
+[17:36:19] [PASS] Service is set to Manual
+[17:36:19] [DIV] -------------------------------------------------------------
+[17:36:19] [DETAIL] Services complete
+[17:36:19] [SECT] -------------------------------------------------------------
+[17:36:19] [SECT]                       Scheduled Tasks                        
+[17:36:19] [SECT] -------------------------------------------------------------
+[17:36:19] [DETAIL] Validating background tasks...
+[17:36:19] [DIV] -------------------------------------------------------------
+[17:36:19] [INFO] Task: ProactiveScan
+[17:36:20] [PASS] Task is disabled
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [DETAIL] Tasks validation complete
+[17:36:20] [SECT] -------------------------------------------------------------
+[17:36:20] [SECT]                         Power Config                         
+[17:36:20] [SECT] -------------------------------------------------------------
+[17:36:20] [DETAIL] Validating Power Configs...
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Granular power settings (PCIe, USB, Processor) are
+[17:36:20] [INFO] validated by Exit Code during configuration.
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [PASS] Active Plan: High Performance
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [PASS] Hibernation File: Absent (Success)
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [DETAIL] Power Validation complete
+[17:36:20] [SECT] -------------------------------------------------------------
+[17:36:20] [SECT]                         Activity Feed                        
+[17:36:20] [SECT] -------------------------------------------------------------
+[17:36:20] [DETAIL] No Registry definitions to validate
+[17:36:20] [DETAIL] Validating LGPO definitions...
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: Computer: Enables Activity Feed
+[17:36:20] [PASS] EnableActivityFeed = 0
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: Computer: Allow publishing of User Activities
+[17:36:20] [PASS] PublishUserActivities = 0
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: Computer: Allow upload of User Activities
+[17:36:20] [PASS] UploadUserActivities = 0
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [DETAIL] LGPO validation complete
+[17:36:20] [DETAIL] Activity Feed complete
+[17:36:20] [SECT] -------------------------------------------------------------
+[17:36:20] [SECT]                        App Permissions                       
+[17:36:20] [SECT] -------------------------------------------------------------
+[17:36:20] [DETAIL] No Registry definitions to validate
+[17:36:20] [DETAIL] Validating LGPO definitions...
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: Computer: Let Windows apps run in the background
+[17:36:20] [PASS] LetAppsRunInBackground = 2
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: Computer: Let Windows apps access location
+[17:36:20] [PASS] LetAppsAccessLocation = 2
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: Computer: Let Windows apps access the camera
+[17:36:20] [PASS] LetAppsAccessCamera = 2
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: Computer: Let Windows apps access the microphone
+[17:36:20] [PASS] LetAppsAccessMicrophone = 2
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: Computer: Let Windows apps activate with voice
+[17:36:20] [PASS] LetAppsActivateWithVoice = 2
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: Computer: Let Windows apps activate with voice while the system is locked
+[17:36:20] [PASS] LetAppsActivateWithVoiceAboveLock = 2
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: Computer: Let Windows apps access notifications
+[17:36:20] [PASS] LetAppsAccessNotifications = 2
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: Computer: Let Windows apps access account information
+[17:36:20] [PASS] LetAppsAccessAccountInfo = 2
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: Computer: Let Windows apps access contacts
+[17:36:20] [PASS] LetAppsAccessContacts = 2
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: Computer: Let Windows apps access the calendar
+[17:36:20] [PASS] LetAppsAccessCalendar = 2
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: Computer: Let Windows apps make phone calls
+[17:36:20] [PASS] LetAppsAccessPhone = 2
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: Computer: Let Windows apps access call history
+[17:36:20] [PASS] LetAppsAccessCallHistory = 2
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: Computer: Let Windows apps access email
+[17:36:20] [PASS] LetAppsAccessEmail = 2
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: Computer: Let Windows apps access Tasks
+[17:36:20] [PASS] LetAppsAccessTasks = 2
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: Computer: Let Windows apps access messaging
+[17:36:20] [PASS] LetAppsAccessMessaging = 2
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: Computer: Let Windows apps control radios
+[17:36:20] [PASS] LetAppsAccessRadios = 2
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: Computer: Let Windows apps communicate with unpaired devices
+[17:36:20] [PASS] LetAppsSyncWithDevices = 2
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: Computer: Let Windows apps access trusted devices
+[17:36:20] [PASS] LetAppsAccessTrustedDevices = 2
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: Computer: Let Windows apps access diagnostic information about other apps
+[17:36:20] [PASS] LetAppsGetDiagnosticInfo = 2
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: Computer: Let Windows apps turn off the screenshot border
+[17:36:20] [PASS] LetAppsAccessGraphicsCaptureWithoutBorder = 2
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: Computer: Let Windows apps take screenshots of various windows or displays
+[17:36:20] [PASS] LetAppsAccessGraphicsCaptureProgrammatic = 2
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: Computer: Let Windows apps make use of Text and image generation features of Windows
+[17:36:20] [PASS] LetAppsAccessSystemAIModels = 2
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [DETAIL] LGPO validation complete
+[17:36:20] [DETAIL] App Permissions complete
+[17:36:20] [SECT] -------------------------------------------------------------
+[17:36:20] [SECT]                       Clipboard History                      
+[17:36:20] [SECT] -------------------------------------------------------------
+[17:36:20] [DETAIL] No Registry definitions to validate
+[17:36:20] [DETAIL] Validating LGPO definitions...
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: Computer: Allow Clipboard History
+[17:36:20] [PASS] AllowClipboardHistory = 0
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: Computer: Allow Clipboard synchronization
+[17:36:20] [PASS] AllowCrossDeviceClipboard = 0
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [DETAIL] LGPO validation complete
+[17:36:20] [DETAIL] Clipboard History complete
+[17:36:20] [SECT] -------------------------------------------------------------
+[17:36:20] [SECT]                         Cloud Content                        
+[17:36:20] [SECT] -------------------------------------------------------------
+[17:36:20] [DETAIL] No Registry definitions to validate
+[17:36:20] [DETAIL] Validating LGPO definitions...
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: Computer: Allow Cloud Search
+[17:36:20] [PASS] AllowCloudSearch = 0
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: Computer: Turn off cloud consumer account state content
+[17:36:20] [PASS] DisableConsumerAccountStateContent = 1
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: Computer: Turn off cloud optimized content
+[17:36:20] [PASS] DisableCloudOptimizedContent = 1
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [DETAIL] LGPO validation complete
+[17:36:20] [DETAIL] Cloud Content complete
+[17:36:20] [SECT] -------------------------------------------------------------
+[17:36:20] [SECT]                     Windows Copilot & AI                     
+[17:36:20] [SECT] -------------------------------------------------------------
+[17:36:20] [DETAIL] No Registry definitions to validate
+[17:36:20] [DETAIL] Validating LGPO definitions...
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: Computer: Allow Recall to be enabled
+[17:36:20] [PASS] AllowRecallEnablement = 0
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: Computer: Allow export of Recall and snapshot information
+[17:36:20] [PASS] AllowRecallExport = 0
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: Computer: Turn off saving snapshots for use with Recall
+[17:36:20] [PASS] DisableAIDataAnalysis = 1
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: Computer: Disable Click to Do
+[17:36:20] [PASS] DisableClickToDo = 1
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: Computer: Disable Settings agentic search experience
+[17:36:20] [PASS] DisableSettingsAgent = 1
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: User: Turn off Windows Copilot
+[17:36:20] [PASS] TurnOffWindowsCopilot = 1
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [DETAIL] LGPO validation complete
+[17:36:20] [DETAIL] Windows Copilot & AI complete
+[17:36:20] [SECT] -------------------------------------------------------------
+[17:36:20] [SECT]                        Diagnostic Data                       
+[17:36:20] [SECT] -------------------------------------------------------------
+[17:36:20] [DETAIL] No Registry definitions to validate
+[17:36:20] [DETAIL] Validating LGPO definitions...
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: Computer: Allow Diagnostic Data
+[17:36:20] [PASS] AllowTelemetry = 0
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: Computer: Allow device name to be sent in Windows diagnostic data
+[17:36:20] [PASS] AllowDeviceNameInTelemetry = 0
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: Computer: Limit Diagnostic Log Collection
+[17:36:20] [PASS] LimitDiagnosticLogCollection = 1
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: Computer: Limit Dump Collection
+[17:36:20] [PASS] LimitDumpCollection = 1
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: Computer: Limit optional diagnostic data for Desktop Analytics
+[17:36:20] [PASS] LimitEnhancedDiagnosticDataWindowsAnalytics = 1
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: User: Do not use diagnostic data for tailored experiences
+[17:36:20] [PASS] DisableTailoredExperiencesWithDiagnosticData = 1
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [DETAIL] LGPO validation complete
+[17:36:20] [DETAIL] Diagnostic Data complete
+[17:36:20] [SECT] -------------------------------------------------------------
+[17:36:20] [SECT]                         File Explorer                        
+[17:36:20] [SECT] -------------------------------------------------------------
+[17:36:20] [DETAIL] Validating Registry definitions...
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: File Explorer > Navigation pane: Home directory
+[17:36:20] [PASS] System.IsPinnedToNameSpaceTree = 0
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: File Explorer > Navigation pane: Gallery directory
+[17:36:20] [PASS] System.IsPinnedToNameSpaceTree = 0
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: File Explorer > Options: Open to 'This PC'
+[17:36:20] [PASS] LaunchTo = 1
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: File Explorer > Options: Show recent files / frequent folders
+[17:36:20] [PASS] ShowFrequent = 0
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: File Explorer > Options: Show Office.com files
+[17:36:20] [PASS] ShowCloudFilesInQuickAccess = 0
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: System > Advanced > File Explorer: Show file extensions
+[17:36:20] [PASS] HideFileExt = 0
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: System > Advanced > File Explorer: Show hidden and system file
+[17:36:20] [PASS] ShowSuperHidden = 1
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: System > Advanced > File Explorer: Show hidden and system file
+[17:36:20] [PASS] Hidden = 1
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [DETAIL] Registry validation complete
+[17:36:20] [DETAIL] No LGPO definitions to validate
+[17:36:20] [DETAIL] File Explorer complete
+[17:36:20] [SECT] -------------------------------------------------------------
+[17:36:20] [SECT]                            Gaming                            
+[17:36:20] [SECT] -------------------------------------------------------------
+[17:36:20] [DETAIL] Validating Registry definitions...
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: Gaming > Game Mode: Game Mode
+[17:36:20] [PASS] AutoGameModeEnabled = 0
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: Gaming > Game Bar : Allow your controller to open Game Bar
+[17:36:20] [PASS] UseNexusForGameBarEnabled = 0
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: Gaming > Captures: Record what happened
+[17:36:20] [PASS] AppCaptureEnabled = 0
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: Gaming > Captures: Record what happened
+[17:36:20] [PASS] HistoricalCaptureEnabled = 0
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: Gaming > Captures: Capture audio when recording a game
+[17:36:20] [PASS] AudioCaptureEnabled = 0
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: Gaming > Captures: Capture mouse cursor when recording a game
+[17:36:20] [PASS] CursorCaptureEnabled = 0
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [DETAIL] Registry validation complete
+[17:36:20] [DETAIL] No LGPO definitions to validate
+[17:36:20] [DETAIL] Gaming complete
+[17:36:20] [SECT] -------------------------------------------------------------
+[17:36:20] [SECT]                         Ink Workspace                        
+[17:36:20] [SECT] -------------------------------------------------------------
+[17:36:20] [DETAIL] Validating Registry definitions...
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: Registry: Pen: Press and hold for right-click
+[17:36:20] [PASS] HoldMode = 3
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: Registry: Pen: Flicks 
+[17:36:20] [PASS] FlickMode = 0
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [DETAIL] Registry validation complete
+[17:36:20] [DETAIL] Validating LGPO definitions...
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: Computer: Allow Windows Ink Workspace
+[17:36:20] [PASS] AllowWindowsInkWorkspace = 0
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [DETAIL] LGPO validation complete
+[17:36:20] [DETAIL] Ink Workspace complete
+[17:36:20] [SECT] -------------------------------------------------------------
+[17:36:20] [SECT]                        Microsoft Edge                        
+[17:36:20] [SECT] -------------------------------------------------------------
+[17:36:20] [DETAIL] Validating Registry definitions...
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: Registry: Chromium-based Edge: Disable Startup Boost
+[17:36:20] [PASS] StartupBoostEnabled = 0
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: Registry: Chromium-based Edge: Disable Background Apps
+[17:36:20] [PASS] BackgroundModeEnabled = 0
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: Registry: Chromium-based Edge: Quick Sleep Tabs (Performance)
+[17:36:20] [PASS] SleepingTabsTimeout = 30
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [DETAIL] Registry validation complete
+[17:36:20] [DETAIL] No LGPO definitions to validate
+[17:36:20] [DETAIL] Microsoft Edge complete
+[17:36:20] [SECT] -------------------------------------------------------------
+[17:36:20] [SECT]                         Notifications                        
+[17:36:20] [SECT] -------------------------------------------------------------
+[17:36:20] [DETAIL] Validating Registry definitions...
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: System > Notifications > Additional Settings: Get tips and suggestions when using Windows
+[17:36:20] [PASS] SoftLandingEnabled = 0
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: System > Notifications > Additional Settings: Show the Windows Welcome Experience after...
+[17:36:20] [PASS] SubscribedContent-353694Enabled = 0
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: System > Notifications > Additional Settings: Suggest ways to get the most out of Windows...
+[17:36:20] [PASS] ScoobeSystemSettingEnabled = 0
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: Privacy & Security > General: Show me notification is the settings app
+[17:36:20] [PASS] EnableAccountNotifications = 0
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [DETAIL] Registry validation complete
+[17:36:20] [DETAIL] Validating LGPO definitions...
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: Computer: Turn off Toast Notifications
+[17:36:20] [PASS] NoToastApplicationNotification = 1
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [DETAIL] LGPO validation complete
+[17:36:20] [DETAIL] Notifications complete
+[17:36:20] [SECT] -------------------------------------------------------------
+[17:36:20] [SECT]                           OneDrive                           
+[17:36:20] [SECT] -------------------------------------------------------------
+[17:36:20] [DETAIL] No Registry definitions to validate
+[17:36:20] [DETAIL] Validating LGPO definitions...
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: Computer: Prevent the usage of OneDrive for file storage
+[17:36:20] [PASS] DisableFileSyncNGSC = 1
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: Computer: Prevent OneDrive from generating network traffic until the user signs in to OneDrive
+[17:36:20] [PASS] PreventNetworkTrafficPreUserSignIn = 1
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [DETAIL] LGPO validation complete
+[17:36:20] [DETAIL] OneDrive complete
+[17:36:20] [SECT] -------------------------------------------------------------
+[17:36:20] [SECT]                        Personalization                       
+[17:36:20] [SECT] -------------------------------------------------------------
+[17:36:20] [DETAIL] Validating Registry definitions...
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: Personalization > Colors: Dark mode (system)
+[17:36:20] [PASS] SystemUsesLightTheme = 0
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: Personalization > Colors: Dark mode (apps)
+[17:36:20] [PASS] AppsUseLightTheme = 0
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: Personalization > Colors: Transparency effects
+[17:36:20] [PASS] EnableTransparency = 0
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: Bluetooth & Devices > Mouse: Additional mouse settings: Mouse Options > Pointer Options: Enhance pointer precision
+[17:36:20] [PASS] MouseSpeed = 0
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: Bluetooth & Devices > Mouse: Additional mouse settings: Mouse Options > Pointer Options: Enhance pointer precision
+[17:36:20] [PASS] MouseThreshold1 = 0
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: Bluetooth & Devices > Mouse: Additional mouse settings: Mouse Options > Pointer Options: Enhance pointer precision
+[17:36:20] [PASS] MouseThreshold2 = 0
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: Bluetooth & Devices > Mouse: Additional mouse settings: Mouse Options > Pointer Options: Display pointer trails
+[17:36:20] [PASS] MouseTrails = 0
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: Accessibility > Keyboard > Sticky keys: Keyboard shortcut for Sticky keys
+[17:36:20] [PASS] Flags = 506
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: Registry: Windows: Min/max/close animation
+[17:36:20] [PASS] MinAnimate = 0
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: Registry: Display: Multi-monitor mode change animations
+[17:36:20] [PASS] W8OnStopScreenModeChange = 0
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [DETAIL] Registry validation complete
+[17:36:20] [DETAIL] Validating LGPO definitions...
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: Computer: Continue experiences on this device
+[17:36:20] [PASS] EnableCdp = 0
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [DETAIL] LGPO validation complete
+[17:36:20] [DETAIL] Personalization complete
+[17:36:20] [SECT] -------------------------------------------------------------
+[17:36:20] [SECT]                           Search                             
+[17:36:20] [SECT] -------------------------------------------------------------
+[17:36:20] [DETAIL] Validating Registry definitions...
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: Privacy & Security > Search: Search history
+[17:36:20] [PASS] IsDeviceSearchHistoryEnabled = 0
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: None: Disable Bing web results system wide
+[17:36:20] [PASS] BingSearchEnabled = 0
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [DETAIL] Registry validation complete
+[17:36:20] [DETAIL] Validating LGPO definitions...
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: Computer: Allow search highlights
+[17:36:20] [PASS] EnableDynamicContentInWSB = 0
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [DETAIL] LGPO validation complete
+[17:36:20] [DETAIL] Search complete
+[17:36:20] [SECT] -------------------------------------------------------------
+[17:36:20] [SECT]                       Windows Spotlight                      
+[17:36:20] [SECT] -------------------------------------------------------------
+[17:36:20] [DETAIL] No Registry definitions to validate
+[17:36:20] [DETAIL] Validating LGPO definitions...
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: User: Turn off all Windows spotlight features
+[17:36:20] [PASS] DisableWindowsSpotlightFeatures = 1
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: User: Turn off Spotlight collection on Desktop
+[17:36:20] [PASS] DisableSpotlightCollectionOnDesktop = 1
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: User: Turn off Windows Spotlight on Action Center
+[17:36:20] [PASS] DisableWindowsSpotlightOnActionCenter = 1
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: User: Turn off Windows Spotlight on Settings
+[17:36:20] [PASS] DisableWindowsSpotlightOnSettings = 1
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: User: Do not suggest third-party content in Windows spotlight
+[17:36:20] [PASS] DisableThirdPartySuggestions = 1
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [DETAIL] LGPO validation complete
+[17:36:20] [DETAIL] Windows Spotlight complete
+[17:36:20] [SECT] -------------------------------------------------------------
+[17:36:20] [SECT]                          Start Menu                          
+[17:36:20] [SECT] -------------------------------------------------------------
+[17:36:20] [DETAIL] Validating Registry definitions...
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: System > Start: Show mobile devices in Start
+[17:36:20] [PASS] IsEnabled = 0
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: Personalization > Start: Show recommendations for tips, shortcuts, new apps, and more
+[17:36:20] [PASS] Start_IrisRecommendations = 0
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: Personalization > Start: Show account-related notifications
+[17:36:20] [PASS] Start_AccountNotifications = 0
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [DETAIL] Registry validation complete
+[17:36:20] [DETAIL] Validating LGPO definitions...
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: Computer: Do not keep history of recently opened documents
+[17:36:20] [PASS] NoRecentDocsHistory = 1
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: Computer: Remove All Programs list from the Start menu
+[17:36:20] [PASS] NoStartMenuMorePrograms = 1
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: Computer: Remove 'Recently added' list from Start Menu
+[17:36:20] [PASS] HideRecentlyAddedApps = 1
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: Computer: Remove Personalized Website Recommendations from the Recommended section in the Start Menu
+[17:36:20] [PASS] HideRecommendedPersonalizedSites = 1
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: Computer: Show or hide 'Most used' list from Start menu
+[17:36:20] [PASS] ShowOrHideMostUsedApps = 2
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: User: Turn off display of recent search entries in the File Explorer search box
+[17:36:20] [PASS] DisableSearchBoxSuggestions = 1
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: Computer: Continue experiences on this device
+[17:36:20] [PASS] EnableCdp = 0
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [DETAIL] LGPO validation complete
+[17:36:20] [DETAIL] Start Menu complete
+[17:36:20] [SECT] -------------------------------------------------------------
+[17:36:20] [SECT]                            Taskbar                           
+[17:36:20] [SECT] -------------------------------------------------------------
+[17:36:20] [DETAIL] Validating Registry definitions...
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: Personalization > Taskbar > Taskbar behaviors: Taskbar alignment
+[17:36:20] [PASS] TaskbarAl = 1
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: System > Advanced: End Task
+[17:36:20] [PASS] TaskbarEndTask = 1
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [DETAIL] Registry validation complete
+[17:36:20] [DETAIL] Validating LGPO definitions...
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: Computer: Hide the TaskView button
+[17:36:20] [PASS] HideTaskViewButton = 1
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: Computer: Configures search on the taskbar
+[17:36:20] [PASS] SearchOnTaskbarMode = 0
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [DETAIL] LGPO validation complete
+[17:36:20] [DETAIL] Taskbar complete
+[17:36:20] [SECT] -------------------------------------------------------------
+[17:36:20] [SECT]                           Telemetry                          
+[17:36:20] [SECT] -------------------------------------------------------------
+[17:36:20] [DETAIL] Validating Registry definitions...
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: Privacy & Security > General: Let websites show me locally relevant content
+[17:36:20] [PASS] HttpAcceptLanguageOptOut = 1
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: None: Disable telemetry about user profile usage
+[17:36:20] [PASS] UserProfileEngagementConfig = 0
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: None: Prevent Microsoft from remotely enabling experimental UI changes
+[17:36:20] [PASS] FeatureManagementEnabled = 0
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: None: Disable ads in Settings app and system flyouts
+[17:36:20] [PASS] SystemPaneSuggestionsEnabled = 0
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: None: Disable CDM's ability to pull down third-party apps and ads
+[17:36:20] [PASS] ContentDeliveryAllowed = 0
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: None: Subscriber Content: Welcome Experience and Lock Screen suggestions
+[17:36:20] [PASS] SubscribedContent-338387Enabled = 0
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: None: Subscriber Content: Suggestions in Settings app
+[17:36:20] [PASS] SubscribedContent-338393Enabled = 0
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: None: Subscriber Content: OOBE reminders
+[17:36:20] [PASS] SubscribedContent-353696Enabled = 0
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: LEGACY System Notifications > Advanced Settings: Suggest ways to get the most out of Windows...
+[17:36:20] [PASS] SubscribedContent-310093Enabled = 0
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: LEGACY System > Notifications > Additional Settings: Get tips and suggestions when using Windows
+[17:36:20] [PASS] SubscribedContent-338389Enabled = 0
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [DETAIL] Registry validation complete
+[17:36:20] [DETAIL] Validating LGPO definitions...
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: Computer: Turn off Windows Customer Experience Improvement Program
+[17:36:20] [PASS] CEIPEnable = 1
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: Computer: Turn off Microsoft consumer experiences
+[17:36:20] [PASS] DisableWindowsConsumerFeatures = 1
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: User: Turn off the Windows Welcome Experience
+[17:36:20] [PASS] DisableWindowsSpotlightWindowsWelcomeExperience = 1
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: Computer: Turn off the advertising ID
+[17:36:20] [PASS] DisabledByGroupPolicy = 1
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: User: Turn off user tracking
+[17:36:20] [PASS] NoInstrumentation = 1
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: Computer: Do not show feedback notifications
+[17:36:20] [PASS] DoNotShowFeedbackNotifications = 1
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: Computer: Do not show Windows tips
+[17:36:20] [PASS] DisableSoftLanding = 1
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: Computer: Allow Online Tips
+[17:36:20] [PASS] AllowOnlineTips = 0
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [DETAIL] LGPO validation complete
+[17:36:20] [DETAIL] Telemetry complete
+[17:36:20] [SECT] -------------------------------------------------------------
+[17:36:20] [SECT]                            Widgets                           
+[17:36:20] [SECT] -------------------------------------------------------------
+[17:36:20] [DETAIL] No Registry definitions to validate
+[17:36:20] [DETAIL] Validating LGPO definitions...
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: Computer: Allow widgets
+[17:36:20] [PASS] AllowNewsAndInterests = 0
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: Computer: Disable Widgets Board
+[17:36:20] [PASS] DisableWidgetsBoard = 1
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [INFO] Check: Computer: Disable Widgets On Lock Screen
+[17:36:20] [PASS] DisableWidgetsOnLockScreen = 1
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [DETAIL] LGPO validation complete
+[17:36:20] [DETAIL] Widgets complete
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [DETAIL] Subscripts complete
+[17:36:20] [DETAIL] Skipped: Flush DNS cache
+[17:36:20] [DETAIL] Skipped: Flush Windows Temp directories
+[17:36:20] [DETAIL] Skipped: Restart explorer.exe
+[17:36:20] [DETAIL] Skipped: System restart
+[17:36:20] [DIV] -------------------------------------------------------------
+[17:36:20] [PASS] Validation complete
+
