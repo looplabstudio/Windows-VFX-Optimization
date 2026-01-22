@@ -97,3 +97,8 @@
 [18:14:57] [PASS] Windows Temp directories flushed 
 [18:14:57] [DETAIL] Restarting File Explorer and Taskbar...
 [18:15:00] [PROMPT] A system restart is recommended. Restart now?
+[20:38:09] [DETAIL] User declined restart
+[20:38:09] [WARN] Please restart manually to apply changes
+[20:38:09] [DIV] -------------------------------------------------------------
+[20:38:09] [PASS] Script complete
+

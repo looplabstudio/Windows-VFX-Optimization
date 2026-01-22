@@ -59,39 +59,7 @@ DTT is the brain that communicates with the Windows Thread Director. Dell someti
 MCE is a factory overclock that ignores Intel's safety limits to push all cores to max turbo. This is the primary culprit for the Vmin Shift degradation issues.
 
 
-## 3. NVIDIA Control Panel Optimizations
-
-Use the `Studio Driver` branch and perform a `Clean Install` to remove legacy telemetry.
-
-Do not install `Game Ready` drivers. Specifically, DaVinci Resolve 19 has severe conflict issues with certain recent drivers. 
-
-
-| Setting                     | Target Value                  | Why?     |
-| --------------------------- | ----------------------------- | -------- |
-| Power management mode       | Prefer maximum performance    | Keeps GPU clocks high to prevent laggy playback during color work. |
-| Texture filtering - Quality | High performance              | Bypasses redundant driver filtering to speed up frame processing.  |
-| Threaded optimization       | On                            | Improves communication between Arrow lake CPU and the GPU.|
-| Vertical sync               | Off                           | Prevents the 60fps cap; essential for smooth Fusion UI responsiveness. |
-| Low Latency Mode            | On                            | Reduces the render queue to make timeline scrubbing feel instant. |
-| Open GL GDI compatibility   | Prefer Performance            | Accelerates 2D UI overlays on top of 3D viewports. |
-| Multi-Frame Sampled AA      | Off                           | Prevents artificial smoothing that can mask noise or render artifacts. |
-| Background Application Max Frame Rate | Off                 | Ensures background renders (Resolve/Media Encoder) run at full speed.  |
-| Output color format         | RGB                           | Ensures the most accurate color reproduction for PC monitors. |
-| Output color depth          | 10 bpc (if avail)             | Critical for 10-bit grading in Resolve to prevent banding.    |
-| Output dynamic range        | Full (0-255)                  | Fixes the gamma shift bug where blacks appear as dark grey. |
-
-
-**Substance 3D Stability**
-
-1.  Go to `3D Settings > Manage 3D settings`.
-1.  Select the `Program Settings` tab.
-1.  Select or add `Adobe Substance 3D Designer`.
-1.  Set `Monitor Technology` to `Fixed Refresh` (Disables G-Sync to prevent flickering).
-1.  Set `OpenGL GDI compatibility` to `Prefer performance`.
-1.  Click `Apply`.
-
-
-## 4. Time Check
+## 3. Time Check
 
 The `VFX.ps1` script unhides the `Processor performance time check interval` option located at:
 

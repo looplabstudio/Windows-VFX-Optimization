@@ -830,31 +830,31 @@ function Controller {
         #-------------------------------------------------------------
         # 1. Define subscripts
         $Subscripts = @(
-            # # Arrow Lake Specific Optimizations
-            # "Performance.ps1"
+            # VFX and Arrow Lake Specific Optimizations
+            "Performance.ps1"
             "Services.ps1"
-            # "Tasks.ps1"
-            # "Power-Config.ps1"
-            # # Broad Optimizations
-            # "Activity-Feed.ps1"
-            # "App-Permissions.ps1" 
-            # "Clipboard-History.ps1" 
-            # "Cloud-Content.ps1" 
-            # "Copilot-AI.ps1" 
-            # "Diagnostic-Data.ps1" 
-            # "File-Explorer.ps1"  
-            # "Gaming.ps1" 
-            # "Ink-Workspace.ps1" 
-            # "MS-Edge.ps1" 
-            # "Notifications.ps1" 
-            # "OneDrive.ps1"    
-            # "Personalization.ps1" 
-            # "Search.ps1"    
-            # "Spotlight.ps1" 
-            # "Start-Menu.ps1" 
-            # "Taskbar.ps1" 
-            # "Telemetry.ps1" 
-            # "Widgets.ps1" 
+            "Tasks.ps1"
+            "Power-Config.ps1"
+            # Broad Optimizations
+            "Activity-Feed.ps1"
+            "App-Permissions.ps1" 
+            "Clipboard-History.ps1" 
+            "Cloud-Content.ps1" 
+            "Copilot-AI.ps1" 
+            "Diagnostic-Data.ps1" 
+            "File-Explorer.ps1"  
+            "Gaming.ps1" 
+            "Ink-Workspace.ps1" 
+            "MS-Edge.ps1" 
+            "Notifications.ps1" 
+            "OneDrive.ps1"    
+            "Personalization.ps1" 
+            "Search.ps1"    
+            "Spotlight.ps1" 
+            "Start-Menu.ps1" 
+            "Taskbar.ps1" 
+            "Telemetry.ps1" 
+            "Widgets.ps1" 
         )
 
         # 2. Execute subscripts in current scope
