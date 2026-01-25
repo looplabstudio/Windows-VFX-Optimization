@@ -18,6 +18,13 @@ Prevent VFX apps from crashing when RAM fills up.
 
 ## 2. BIOS Optimizations
 
+For my build, these are the only BIOS changes I made: 
+
+- Power > Thermal Management = Ultra Performance
+- Performance > Enable C-State Control = Off
+
+For reference, here is a more comprehensive list of things to check. Options will vary by vendor and BIOS version.
+
 | Category  | Sidebar Menu       | Setting                        | Target Value              |
 | --------- | ------------------ | ------------------------------ | ------------------------- |
 | Stability | System Information | Microcode Revision             | 0x114 or Higher           |

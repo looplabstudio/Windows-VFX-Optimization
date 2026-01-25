@@ -1,12 +1,11 @@
 # Windows 11 Pro: Benchmarks
 
-| Test          | Preflight       | Pre RTX | Post RTX |
-|---------------|-----------------|---------|----------|
-| DPC Latency   | 616.664776µs    |||
-| CPU Clocking  | 1941 pts        |||
-| Storage I/O   | Read 62.6 MB/s  |||
-|               | Write 43.3 MB/s |||
-| GPU Stability | NA              | NA ||
+| Category       | Tool            | Preflight       | Pre RTX          | Post RTX |
+|----------------|-----------------|-----------------|------------------|----------|
+| DPC Latency    | LatencyMon      | 616.664776µs    | 112.511604µs     ||
+| CPU Clocking   | Cinebench       | 1941 pts        | 7823 pts         ||
+| Random 4K I/O  | CrystalDiskMark | Read 62.6 MB/s  | Read 79 MB/s     ||
+|                |                 | Write 43.3 MB/s | Write 143.1 M
 
 
 ## 1. Benchmarking Tools
@@ -18,10 +17,6 @@ Safe, official direct download links.
 Scroll down to the System Monitoring Tools section and look for LatencyMon 7.31 (or newer). Click Download Free Home Edition.
 
 [Cinebench 2024](https://www.maxon.net/en/downloads/cinebench-2024-downloads)
-
-Maxon now encourages the Maxon App to manage installs, but you can likely find the standalone Cinebench 2024 offline installer on this page or via the app.
-
-- Alternative: [Microsoft Store Link](https://apps.microsoft.com/detail/9pgzkjc81q7j)
 
 [CrystalDiskMark](https://crystalmark.info/en/download/)
 
@@ -44,7 +39,7 @@ Metric: Highest reported DPC routine execution time
 Target: Spikes < 500µs, no red bars in the interface
 
 Preflight: 616.664776µs, no red bars
-Pre RTX:
+Pre RTX: 112.511604µs
 Post RTX: 
 
 ```
@@ -86,27 +81,4 @@ Pre RTX:
 Post RTX:
 
 ```
-
-## 5. GPU Stability: TdrDelay Verification
-
-Windows resets drivers if they hang for 2 seconds. Heavy Fusion flows often exceed this.
-
-```
-- Verification: Open Registry Editor or use Script
-- Path: `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\GraphicsDrivers`
-- Key: `TdrDelay` (REG_DWORD)
-- Target: 60 (decimal)
-- Method: Load a heavy Substance texture or Fusion flow; ensure no "GPU Driver Crash" errors occur.
-
-Preflight: NA
-Pre RTX: NA
-Post RTX: 
-
-```
-
-## 6. Subjective Snappiness
-
-- Boot Time: Power button press to usable Desktop.
-- Search Indexing: Hit Windows Key, type "DaVinci", measure delay to result.
-- Context Menu: Right-click desktop; verify classic menu appears instantly (no "Show more options").
 

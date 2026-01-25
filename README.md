@@ -18,12 +18,21 @@ A technical writer's notes and PowerShell scripts for optimizing a new [Windows 
 
 ## What VFX.ps1 Does
 
-The scripts are documented in-place. The best way to understand what optimizations are performed and why is to read the `.ps1` files, starting with `VFX.ps1`.
+The scripts are documented in-place. The best way to understand what optimizations are performed & why is to read the `.ps1` files, starting with `VFX.ps1`.
 
-`VFX.ps1` contains a list of`$Subscripts`. I tried to keep each one tightly focused so they're easy to comment out and skip. Broadly, the subscripts fall into 2 categories:
+`VFX.ps1` contains a list of`$Subscripts`. I tried to keep each one tightly focused so they're easy to comment out and skip. Broadly, the subscripts fall into 2 categories - common and build-specific.
 
-- Common optimizations for any Windows 11 PC - these are Group Policies and Registry keys. They set/disable many of the controls available in the Settings app. 
-- Build-specific optimizations primarily aimed at Intel Core Ultra 7 265K and the Arrow Lake tile architecture. These include Group Policies, Registry keys, Services, and Tasks.
+Common optimizations for any Windows 11 PC:
+
+- These are Group Policies and Registry keys that set/disable many of the controls available in the Settings app.
+- Aimed at disabling telemetry and background permissions.
+- Include common GUI preferences for the Start menu, Taskbar, and File Explorer.
+
+Build-specific optimizations:
+
+- These include Group Policies, Registry keys, Services, and Tasks.
+- Aimed primarily at Intel Core Ultra 7 265K and the Arrow Lake tile architecture.
+- The Registry keys target options that are in obscure places or not exposed by a GUI.
 
 `VFX.ps1` has a few handy features:
 
@@ -37,8 +46,22 @@ The scripts are documented in-place. The best way to understand what optimizatio
 
 `VFX.ps1` doesn't perform every optimization needed for the best VFX experience - manual configurations are required. 
 
-`VFX.ps1` does not de-bloat Windows Apps or 3rd-party stubs. Installed middleware varies greatly depending on the vendor and OS build, I decided it was easiest and fastest to simply uninstall what was present on my specific build.
+`VFX.ps1` does not de-bloat Windows Apps or 3rd-party stubs. Installed middleware varies greatly depending on the vendor and OS build. I decided it was easiest and fastest to simply uninstall what was present on my specific build.
 
 `VFX.ps1` is aimed at a solo VFX workstation with 1 user. It doesn't deal with networking or enterprise-type configurations or optimizations. 
+
+`VFX.ps1` does not create ghost keys (directories). While it's normal to add missing values (!properties), the key paths exist even on clean installs. A missing path almost always indicates a typo or case of mistaken identity. 
+
+- See [Console.ps1](./Docs/Console.ps1) for command line exploration of keys, tasks, and services.
+
+
+## Benchmarks
+
+| Category       | Tool            | Clean Install   | Post Optimize    | Post RTX |
+|----------------|-----------------|-----------------|------------------|----------|
+| DPC Latency    | LatencyMon      | 616.664776µs    | 112.511604µs     ||
+| CPU Clocking   | Cinebench       | 1941 pts        | 7823 pts         ||
+| Random 4K I/O  | CrystalDiskMark | Read 62.6 MB/s  | Read 79 MB/s     ||
+|                |                 | Write 43.3 MB/s | Write 143.1 MB/s ||
 
 

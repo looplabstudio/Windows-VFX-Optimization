@@ -12,6 +12,10 @@ Get-ScheduledTask | Where-Object { $_.TaskName -match $Task_Name } | Select-Obje
 $Service_Name = "Killer"
 Get-Service | Where-Object { $_.Name -match $Service_Name -or $_.DisplayName -match $Service_Name } | Select-Object Name, DisplayName, Status, StartType
 
+# Repomix
+CD C:\Windows-VFX-Optimization\
+npx repomix
+
 
 
 
