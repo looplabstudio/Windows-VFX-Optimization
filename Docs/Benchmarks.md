@@ -1,11 +1,12 @@
 # Windows 11 Pro: Benchmarks
 
-| Category       | Tool            | Preflight       | Pre RTX          | Post RTX |
-|----------------|-----------------|-----------------|------------------|----------|
-| DPC Latency    | LatencyMon      | 616.664776µs    | 112.511604µs     ||
-| CPU Clocking   | Cinebench       | 1941 pts        | 7823 pts         ||
-| Random 4K I/O  | CrystalDiskMark | Read 62.6 MB/s  | Read 79 MB/s     ||
-|                |                 | Write 43.3 MB/s | Write 143.1 M
+| Category       | Tool            | Preflight       | Pre RTX          | Post RTX   |
+|----------------|-----------------|-----------------|------------------|------------|
+| DPC Latency    | LatencyMon      | 616µs           | 112µs            | 140µs      |
+| CPU Clocking   | Cinebench       | 1941 pts        | 7823 pts         | 7728 pts   | 
+| GPU            | Cinebench       | NA              | NA               | 34686 pts  |
+| Random 4K I/O  | CrystalDiskMark | Read 62.6 MB/s  | Read 79 MB/s     | 74.2 MB/s  |
+|                |                 | Write 43.3 MB/s | Write 143.1 MB/s | 142.0 MB/s |
 
 
 ## 1. Benchmarking Tools
