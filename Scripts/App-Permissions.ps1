@@ -7,7 +7,7 @@
         Privacy & Security: App permissions > App name: Access toggle
 
         - Revert: Let Windows apps access location
-        - Enabled, Force deny: Let Windows apps access the camera
+        - Revert: Force deny: Let Windows apps access the camera
         - Revert: Let Windows apps access the microphone
         - Enabled, Force deny: Let Windows apps access account information
         - Enabled, Force deny: Let Windows apps access call history
@@ -79,7 +79,7 @@ $LGPO_Defs = @(
     }
     # Location - Useful for web browsing
     [PSCustomObject]@{ 
-        Action       = $LGPO_Action
+        Action       = 0
         Hive         = $HKLM_Pol_AppPrivacy.Hive
         Drive        = $HKLM_Pol_AppPrivacy.Drive
         Path         = $HKLM_Pol_AppPrivacy.Path
@@ -94,7 +94,7 @@ $LGPO_Defs = @(
     }
     # Camera
     [PSCustomObject]@{ 
-        Action       = $LGPO_Action
+        Action       = 0
         Hive         = $HKLM_Pol_AppPrivacy.Hive
         Drive        = $HKLM_Pol_AppPrivacy.Drive
         Path         = $HKLM_Pol_AppPrivacy.Path
@@ -108,7 +108,7 @@ $LGPO_Defs = @(
     }
     # Microphone - Required for gaming headset mic
     [PSCustomObject]@{ 
-        Action       = $LGPO_Action
+        Action       = 0
         Hive         = $HKLM_Pol_AppPrivacy.Hive
         Drive        = $HKLM_Pol_AppPrivacy.Drive
         Path         = $HKLM_Pol_AppPrivacy.Path
