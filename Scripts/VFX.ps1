@@ -6,9 +6,10 @@
     2. CD to script directory.
     3. Run script.
 
-CD C:\Windows-VFX-Optimization\Scripts
+CD E:\Windows-VFX-Optimization\Scripts
 Set-ExecutionPolicy Unrestricted -Scope Process -Force; .\VFX.ps1
 Set-ExecutionPolicy Unrestricted -Scope Process -Force; .\VFX.ps1 -DebugMode 1
+code $env:TEMP\lgpo_batch.txt
 
 .NOTES
     Author: LoopLab Studio
@@ -524,7 +525,7 @@ function Process_LGPO_Defs {
         }
 
         # DEBUG
-        # $global:LGPO_Lines | ForEach-Object { Write-Log "LINE: $_" -Level DETAIL }
+        $global:LGPO_Lines | ForEach-Object { Write-Log "LINE: $_" -Level DETAIL }
 
         # 3. Complete
         Write-Log "LGPO collection complete" -Level DETAIL
@@ -553,20 +554,21 @@ function Update_LGPO {
         Write-Log "Updating LGPO..." -Level DETAIL
         Write-Log "LGPO_Lines.Count = $($LGPO_Lines.Count)" -Level DETAIL
 
-        # DEBUG
-        # $global:LGPO_Lines | ForEach-Object { Write-Log "LINE: $_" -Level DETAIL }
-
         # 2.1 Create the temp file path
         $Temp_Config = Join-Path $env:TEMP "lgpo_batch.txt"
 
-        # 2.2 Use Out-File with the list; PowerShell handles the array-to-line conversion
-        # Use 'utf16' (Unicode) to ensure LGPO.exe reads special characters correctly
-        $LGPO_Lines | Out-File -FilePath $Temp_Config -Encoding unicode -Force
+        # 2.2 Use Out-File with the list
+        # We use 'Default' (ANSI) because 'Unicode' often breaks the DELETE keyword in LGPO.exe
+        $LGPO_Lines | Out-File -FilePath $Temp_Config -Encoding Default -Force
 
-        # 2.3 Run LGPO.exe against the temp file
+        # 2.3 (Optional) Ensure clean slate
+        # If your policies are stuck, uncomment the line below to reset the Machine policy file BEFORE writing new ones.
+        # Remove-Item "$env:SystemRoot\System32\GroupPolicy\Machine\registry.pol" -ErrorAction SilentlyContinue
+
+        # 2.4 Run LGPO.exe against the temp file
         $LGPO_Output = & $LGPO_Path /t $Temp_Config 2>&1
 
-        # 2.4 Check for success/failure in the output string
+        # 2.5 Check for success/failure
         if ($LGPO_Output -match "Success" -or $LASTEXITCODE -eq 0) {
             Remove-Item $Temp_Config -ErrorAction SilentlyContinue
             gpupdate /force | Out-Null
@@ -612,8 +614,8 @@ function Validate_LGPO_Defs {
 
             foreach ($Property in $Def.Properties.Keys) {
                 # 2.2 Get expected value
-                $Expected_Value = $Def.Properties[$Property]
-
+                $Expected_Value = if ($Def.Action -eq 0) { $null } else { $Def.Properties[$Property] }
+                
                 # 2.3 Get the actual value from .reg
                 $Reg_Path = "$($Def.Drive)$($Def.Path)"
                 $Current_Value = (Get-ItemProperty -Path $Reg_Path -ErrorAction SilentlyContinue).$Property
@@ -830,31 +832,31 @@ function Controller {
         #-------------------------------------------------------------
         # 1. Define subscripts
         $Subscripts = @(
-            # VFX and Arrow Lake Specific Optimizations
-            "Performance.ps1"
-            "Services.ps1"
-            "Tasks.ps1"
-            "Power-Config.ps1"
-            # Broad Optimizations
-            "Activity-Feed.ps1"
-            "App-Permissions.ps1" 
-            "Clipboard-History.ps1" 
-            "Cloud-Content.ps1" 
-            "Copilot-AI.ps1" 
-            "Diagnostic-Data.ps1" 
-            "File-Explorer.ps1"  
-            "Gaming.ps1" 
-            "Ink-Workspace.ps1" 
-            "MS-Edge.ps1" 
-            "Notifications.ps1" 
-            "OneDrive.ps1"    
-            "Personalization.ps1" 
-            "Search.ps1"    
-            "Spotlight.ps1" 
-            "Start-Menu.ps1" 
-            "Taskbar.ps1" 
-            "Telemetry.ps1" 
-            "Widgets.ps1" 
+            # # VFX and Arrow Lake Specific Optimizations
+            # "Performance.ps1"  
+            # "Services.ps1"     
+            # "Tasks.ps1"        
+            # "Power-Config.ps1" 
+            # # Broad Optimizations
+            "Activity-Feed.ps1"     
+            # "App-Permissions.ps1"   
+            # "Clipboard-History.ps1" 
+            # "Cloud-Content.ps1"     
+            # "Copilot-AI.ps1"        
+            # "Diagnostic-Data.ps1" 
+            # "File-Explorer.ps1"   
+            # "Gaming.ps1"          
+            # "Ink-Workspace.ps1"   
+            # "MS-Edge.ps1"         
+            # "Notifications.ps1"   
+            # "OneDrive.ps1"        
+            # "Personalization.ps1" 
+            # "Search.ps1"          
+            # "Spotlight.ps1"       
+            # "Start-Menu.ps1"      
+            # "Taskbar.ps1"         
+            # "Telemetry.ps1"       
+            # "Widgets.ps1"         
         )
 
         # 2. Execute subscripts in current scope

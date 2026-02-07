@@ -56,14 +56,18 @@ $HKLM_Pol_AppPrivacy = @{
 }
 
 # 2. LGPO definitions
+# These work differently than other Defs. 
+# Action always = 1
 $LGPO_Action = 1
 
+# To revert to 'Not Configured), we must set the Property.
 # -1 = Not configured (deletes key)
 #  1 = Enabled, Force Allow
 #  2 = Enabled, Force Deny
+$Property_Val = 2
 
 $LGPO_Defs = @(
-    # Al Apps
+    # All Apps
     [PSCustomObject]@{ 
         Action       = $LGPO_Action
         Hive         = $HKLM_Pol_AppPrivacy.Hive
@@ -71,7 +75,7 @@ $LGPO_Defs = @(
         Path         = $HKLM_Pol_AppPrivacy.Path
         EditorName   = "Let Windows apps run in the background"
         Properties = @{
-            "LetAppsRunInBackground" = 2
+            "LetAppsRunInBackground" = $Property_Val
         }
         Notes = @(
             "Apps > Installed apps > App Name > Advanced options: Background app permissions"
@@ -79,13 +83,13 @@ $LGPO_Defs = @(
     }
     # Location - Useful for web browsing
     [PSCustomObject]@{ 
-        Action       = 0
+        Action       = $LGPO_Action
         Hive         = $HKLM_Pol_AppPrivacy.Hive
         Drive        = $HKLM_Pol_AppPrivacy.Drive
         Path         = $HKLM_Pol_AppPrivacy.Path
         EditorName   = "Let Windows apps access location"
         Properties = @{
-            "LetAppsAccessLocation" = 2
+            "LetAppsAccessLocation" = -1
         }
         Notes = @(
             "Privacy & Security > Location"
@@ -100,7 +104,7 @@ $LGPO_Defs = @(
         Path         = $HKLM_Pol_AppPrivacy.Path
         EditorName   = "Let Windows apps access the camera"
         Properties = @{
-            "LetAppsAccessCamera" = 2
+            "LetAppsAccessCamera" = -1
         }
         Notes = @(
             "Privacy & Security > Camera"
@@ -114,7 +118,7 @@ $LGPO_Defs = @(
         Path         = $HKLM_Pol_AppPrivacy.Path
         EditorName   = "Let Windows apps access the microphone"
         Properties = @{
-            "LetAppsAccessMicrophone" = 2
+            "LetAppsAccessMicrophone" = -1
         }
         Notes = @(
             "Privacy & Security > Microphone"
@@ -129,7 +133,7 @@ $LGPO_Defs = @(
         Path         = $HKLM_Pol_AppPrivacy.Path
         EditorName   = "Let Windows apps activate with voice"
         Properties = @{
-            "LetAppsActivateWithVoice" = 2
+            "LetAppsActivateWithVoice" = $Property_Val
         }
         Notes = @(
             "Privacy & Security > Voice activation"
@@ -142,7 +146,7 @@ $LGPO_Defs = @(
         Path         = $HKLM_Pol_AppPrivacy.Path
         EditorName   = "Let Windows apps activate with voice while the system is locked"
         Properties = @{
-            "LetAppsActivateWithVoiceAboveLock" = 2
+            "LetAppsActivateWithVoiceAboveLock" = $Property_Val
         }
         Notes = @(
             "Privacy & Security > Voice activation"
@@ -156,7 +160,7 @@ $LGPO_Defs = @(
         Path         = $HKLM_Pol_AppPrivacy.Path
         EditorName   = "Let Windows apps access notifications"
         Properties = @{
-            "LetAppsAccessNotifications" = 2
+            "LetAppsAccessNotifications" = $Property_Val
         }
         Notes = @(
             "Privacy & Security > Notifications"
@@ -170,7 +174,7 @@ $LGPO_Defs = @(
         Path         = $HKLM_Pol_AppPrivacy.Path
         EditorName   = "Let Windows apps access account information"
         Properties = @{
-            "LetAppsAccessAccountInfo" = 2
+            "LetAppsAccessAccountInfo" = $Property_Val
         }
         Notes = @(
             "Privacy & Security > Account info"
@@ -184,7 +188,7 @@ $LGPO_Defs = @(
         Path         = $HKLM_Pol_AppPrivacy.Path
         EditorName   = "Let Windows apps access contacts"
         Properties = @{
-            "LetAppsAccessContacts" = 2
+            "LetAppsAccessContacts" = $Property_Val
         }
         Notes = @(
             "Privacy & Security > Contacts"
@@ -198,7 +202,7 @@ $LGPO_Defs = @(
         Path         = $HKLM_Pol_AppPrivacy.Path
         EditorName   = "Let Windows apps access the calendar"
         Properties = @{
-            "LetAppsAccessCalendar" = 2
+            "LetAppsAccessCalendar" = $Property_Val
         }
         Notes = @(
             "Privacy & Security > Calendar"
@@ -212,7 +216,7 @@ $LGPO_Defs = @(
         Path         = $HKLM_Pol_AppPrivacy.Path
         EditorName   = "Let Windows apps make phone calls"
         Properties = @{
-            "LetAppsAccessPhone" = 2
+            "LetAppsAccessPhone" = $Property_Val
         }
         Notes = @(
             "Privacy & Security > Phone calls"
@@ -226,7 +230,7 @@ $LGPO_Defs = @(
         Path         = $HKLM_Pol_AppPrivacy.Path
         EditorName   = "Let Windows apps access call history"
         Properties = @{
-            "LetAppsAccessCallHistory" = 2
+            "LetAppsAccessCallHistory" = $Property_Val
         }
         Notes = @(
             "Privacy & Security > Call history"
@@ -240,7 +244,7 @@ $LGPO_Defs = @(
         Path         = $HKLM_Pol_AppPrivacy.Path
         EditorName   = "Let Windows apps access email"
         Properties = @{
-            "LetAppsAccessEmail" = 2
+            "LetAppsAccessEmail" = $Property_Val
         }
         Notes = @(
             "Privacy & Security > Email"
@@ -254,7 +258,7 @@ $LGPO_Defs = @(
         Path         = $HKLM_Pol_AppPrivacy.Path
         EditorName   = "Let Windows apps access Tasks"
         Properties = @{
-            "LetAppsAccessTasks" = 2
+            "LetAppsAccessTasks" = $Property_Val
         }
         Notes = @(
             "Privacy & Security > Tasks"
@@ -268,7 +272,7 @@ $LGPO_Defs = @(
         Path         = $HKLM_Pol_AppPrivacy.Path
         EditorName   = "Let Windows apps access messaging"
         Properties = @{
-            "LetAppsAccessMessaging" = 2
+            "LetAppsAccessMessaging" = $Property_Val
         }
         Notes = @(
             "Privacy & Security > Messaging "
@@ -282,7 +286,7 @@ $LGPO_Defs = @(
         Path         = $HKLM_Pol_AppPrivacy.Path
         EditorName   = "Let Windows apps control radios"
         Properties = @{
-            "LetAppsAccessRadios" = 2
+            "LetAppsAccessRadios" = $Property_Val
         }
         Notes = @(
             "Privacy & Security > Radios"
@@ -296,7 +300,7 @@ $LGPO_Defs = @(
         Path         = $HKLM_Pol_AppPrivacy.Path
         EditorName   = "Let Windows apps communicate with unpaired devices"
         Properties = @{
-            "LetAppsSyncWithDevices" = 2
+            "LetAppsSyncWithDevices" = $Property_Val
         }
         Notes = @(
             "Privacy & Security > Other devices"
@@ -309,7 +313,7 @@ $LGPO_Defs = @(
         Path         = $HKLM_Pol_AppPrivacy.Path
         EditorName   = "Let Windows apps access trusted devices"
         Properties = @{
-            "LetAppsAccessTrustedDevices" = 2
+            "LetAppsAccessTrustedDevices" = $Property_Val
         }
         Notes = @(
             "Privacy & Security > Other devices"
@@ -323,7 +327,7 @@ $LGPO_Defs = @(
         Path         = $HKLM_Pol_AppPrivacy.Path
         EditorName   = "Let Windows apps access diagnostic information about other apps"
         Properties = @{
-            "LetAppsGetDiagnosticInfo" = 2
+            "LetAppsGetDiagnosticInfo" = $Property_Val
         }
         Notes = @(
             "Privacy & Security > App diagnostics"
@@ -337,7 +341,7 @@ $LGPO_Defs = @(
         Path         = $HKLM_Pol_AppPrivacy.Path
         EditorName   = "Let Windows apps turn off the screenshot border"
         Properties = @{
-            "LetAppsAccessGraphicsCaptureWithoutBorder" = 2
+            "LetAppsAccessGraphicsCaptureWithoutBorder" = $Property_Val
         }
         Notes = @(
             "Privacy & Security > Screenshot borders"
@@ -351,7 +355,7 @@ $LGPO_Defs = @(
         Path         = $HKLM_Pol_AppPrivacy.Path
         EditorName   = "Let Windows apps take screenshots of various windows or displays"
         Properties = @{
-            "LetAppsAccessGraphicsCaptureProgrammatic" = 2
+            "LetAppsAccessGraphicsCaptureProgrammatic" = $Property_Val
         }
         Notes = @(
             "Privacy & Security > Screenshots and screen recording"
@@ -365,7 +369,7 @@ $LGPO_Defs = @(
         Path         = $HKLM_Pol_AppPrivacy.Path
         EditorName   = "Let Windows apps make use of Text and image generation features of Windows"
         Properties = @{
-            "LetAppsAccessSystemAIModels" = 2
+            "LetAppsAccessSystemAIModels" = $Property_Val
         }
         Notes = @(
             "Privacy & Security > Text xnd image generation"
