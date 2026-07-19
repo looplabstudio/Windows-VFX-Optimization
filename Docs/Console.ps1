@@ -14,8 +14,8 @@ Get-Service | Where-Object { $_.Name -match $Service_Name -or $_.DisplayName -ma
 
 # Repomix
 CD C:\Windows-VFX-Optimization\
+
+CD E:\AGM
 npx repomix
-
-
 
 

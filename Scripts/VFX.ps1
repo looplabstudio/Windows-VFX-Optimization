@@ -9,7 +9,7 @@
 CD E:\Windows-VFX-Optimization\Scripts
 Set-ExecutionPolicy Unrestricted -Scope Process -Force; .\VFX.ps1
 Set-ExecutionPolicy Unrestricted -Scope Process -Force; .\VFX.ps1 -DebugMode 1
-code $env:TEMP\lgpo_batch.txt
+
 
 .NOTES
     Author: LoopLab Studio
